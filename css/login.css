@@ -8,8 +8,8 @@ body {
 .form-signin {
   width: 100%;
   max-width: 330px;
-  padding-bottom: 70px;
-  padding-top: 70px;
+  padding-bottom: 60px;
+  padding-top: 60px;
   margin: auto;
 }
 .form-signin .checkbox {
