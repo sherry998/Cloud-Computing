@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|Roboto');html {
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.masthead {
+  position: relative;
+
+  background: url("../img/bg.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+}
+
+.masthead .overlay {
+  position: absolute;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+.masthead h1 {
+  font-size: 2.5rem;
+}
