@@ -21,25 +21,8 @@
   <body>
 
     
-     <!--menu-->
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal"><a class="navbar-brand text-dark" href="index.html">Food Maker</a></h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <!--Dropdown link in menu-->
-          <a class="p-2 text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recipe</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item disabled" href="#">Types</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Asia Food</a>
-            <a class="dropdown-item" href="#">XXX Food</a>
-          </div>
-         <!--Dropdown link in menu-->
-
-        <a class="p-2 text-dark" href="#">About</a>
-        <a class="p-2 text-dark" href="login.html">Log In</a>
-      </nav>
-        <a class="btn btn-primary" href="#">Sign up</a>
-    </div>
+	<!--menu-->
+    <div id="header"></div>
     <!--menu-->
 
     <!--homepage search bar-->
@@ -172,44 +155,7 @@
       </div>
   
       <!--Footer-->
-      <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-          <div class="col-12 col-md">
-            
-            <small class="d-block mb-3 text-muted">&copy; 2018 - Food Maker</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Recipe - Types</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Type </a></li>
-              <li><a class="text-muted" href="#">Type Type</a></li>
-              <li><a class="text-muted" href="#">Type Type</a></li>
-              <li><a class="text-muted" href="#">Type for Type</a></li>
-              <li><a class="text-muted" href="#">Type one</a></li>
-              <li><a class="text-muted" href="#">Type Type</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-           
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Type</a></li>
-              <li><a class="text-muted" href="#">Type name</a></li>
-              <li><a class="text-muted" href="#">Type</a></li>
-              <li><a class="text-muted" href="#">Type </a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li class="text-muted">Team</li>
-              <li class="text-muted">Object-</li>
-              <li class="text-muted">Team</li>
-              <li class="text-muted">Team</li>
-              
-            </ul>
-          </div>
-        </div>
-      </footer>
+      <div id = "footer"></div>
     </div>
 
    
@@ -218,14 +164,15 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
     </script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
+	
+	<script type="text/javascript" src="js/loadHtml.js"></script>
    
   </body>
 </html>
