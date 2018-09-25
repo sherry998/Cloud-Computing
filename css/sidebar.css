@@ -1,0 +1,37 @@
+.side{
+	margin-top:2%;
+	max-width: 21%;
+}
+
+.foodIcon{
+	width:14%;
+	margin-right:7%;
+}
+
+.filterBtn{
+	width:100%;
+	text-align: left;
+	margin-bottom:5%;
+	margin-top:2%;
+	color: white;
+}
+
+.filterBtn:hover{
+	color: white;
+}
+
+input[type="checkbox"]{
+	margin-right:5%;
+}
+
+.check{
+	margin-right:8%;
+	white-space:nowrap;
+}
+
+.right{
+	width:6%;
+	right:12%;
+	position: absolute;
+	margin-top:2.5%;
+}
