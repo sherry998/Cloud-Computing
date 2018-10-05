@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+ 
+
+    <title> Food Maker</title>
+
+   <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom styles for Food Maker Website -->
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/profile.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    
+      <!--menu-->
+  
+          <div class="navbar navbar-expand-lg p-3 px-md-4 bg-white border-bottom shadow-sm">
+              <h5 class="my-0 mr-md-auto font-weight-normal"><a class="text-dark navbar-brand" href="#">Food Maker</a></h5>
+              <!--dropdown menu button-->
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span class="fa fa-reorder"></span>
+              </button>
+              <!--dropdown menu button-->
+
+              <!--dropdown menu item-->
+              <div class="collapse navbar-collapse" id="menuDropdown">
+
+                <ul class="navbar-nav mr-auto ">
+                  <li class="nav-item ">
+                    <a class="nav-link text-muted" href="#">Home</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link text-muted" href="#">Recipe</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link text-muted dropdown-toggle"id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Types</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item disabled" href="#">Types</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Asia Food</a>
+                        <a class="dropdown-item" href="#">XXX Food</a>
+                    </div>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link text-muted" href="#">Publish</a>
+                  </li>
+                </ul>
+
+              <!--dropdown menu search bar-->
+                <form class="form-inline my-2 my-lg-0 ">
+                  <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </div>
+                  </div>
+                </form>
+              <!--dropdown menu search bar-->
+
+              <!--dropdown Login-->
+                <ul class="navbar-nav " id="#">
+                      <li class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle text-muted" id="dropLogin"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><i class="fa fa-user"></i> Log In</a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <form class="px-4 py-3">
+                              <div class="form-group">
+                                <label for="exampleDropdownFormEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleDropdownFormPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                              </div>
+                              
+                             
+                              <button type="submit" class="btn btn-primary float-right">Sign in</button>
+                              
+                            </form>
+                            
+                            
+                           
+                            <div class="text-center dropdown-item">
+                                <hr>
+                                New here ? <a href="signUp.html"><b>Sign UP NOW!</b></a>
+                            </div>
+                            
+                        </div>
+                      </li>
+              
+                </ul>
+              <!--dropdown Login-->
+
+              </div>
+               <!--dropdown menu item-->
+            </div>
+        <!--menu-->
+   
+
+
+    
+    <div class="container ">
+      <div class="row ">
+       
+
+      <!--main content-->
+        <div class="col-md-10 content">
+            <h2><b>Create New Recipe</b></h2>
+            <hr>
+            <form  action="#" method="post" id="" >
+
+               
+                    <div class="form-group">
+                        <label for="title"><b>Title</b></label>  
+                        <div class="input-group " > 
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-pencil"></i></span>
+                          </div>
+
+                          <input type="text" name="title" id="#" class="form-control" placeholder="Enter title here" autocomplete="off">
+                        </div> 
+                    </div>  
+          
+
+                <div id="simpleInfro" class="form-group">
+
+                    <div class="from-group row">
+                        <!-- Icon to be added, also add spacing -->
+                        <div class="col-sm-6">
+                            <label for="location"><b>Nationality</b></label> 
+                            <div class="input-group " >
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-globe"></i></span>
+                                </div>
+
+                                <select class="custom-select" id="#" name="type">
+                                    <option value="vF">Vietnam Food</option>
+                                    <option value="cF">Chinese Food	</option>
+                                    <option value="iF">Italy Food</option>
+                                    <option value="tF">Thailand Food</option>
+                                    <option value="uF">Ukraine Food</option>
+                                    <option value="gF">Greece Food</option>
+                                    <option value="o">Others</option>
+                                </select>                           
+                             
+                            </div>
+                        </div>
+
+                   
+
+                        <div class="col-sm-6">
+                            <label for="departureD"><b>Time</b></label> 
+                          <div class="input-group row">
+                            <div class="input-group col-sm-6">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                                <input class="form-control" placeholder="Hours" type="number" id="#">
+                            </div>
+                            <div class="input-group col-sm-6">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                                <input class="form-control" placeholder="Mintues" type="number" id="#">
+                            </div>
+                          </div>
+                        </div>
+                    
+                    </div>
+      
+                     <br>
+                    <div class="from-group row">
+                        <div class="col-sm-6">
+                            <label for="people"><b>Difficult Level</b></label>
+                          <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-bolt"></i></span>
+                            </div>
+                
+                            <select class="custom-select" id="#" name="type">
+                                <option value="ve">Very Easy</option>
+                                <option value="e">Easy	</option>
+                                <option value="m">Middle</option>
+                                <option value="h">Hard</option>
+                                <option value="vh">Very Hard</option>
+                            </select>
+                          </div>
+                        </div>
+                   
+                   
+                        <div class="col-sm-6" >
+                           
+                                <label for="budget"><b>Cost</b></label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                      <span class="input-group-text">$</span>
+                                  </div>
+                                    <input class="form-control" type="number" name="budget" id="cost" value= 0>
+                                </div>
+                        </div>
+
+                    
+                    </div>
+
+                    <br>
+
+
+                    <label for="main-upload" class="btn btn-primary col-md-auto" >
+                        Add featured image
+                    </label>
+                    <input id="main-upload" name="main-upload" type="file" style="display:none;" accept="image/x-png,image/gif,image/jpeg" />
+
+                    <hr>
+                    <h5>Add Ingredient:</h5>
+                    <div class="from-group">
+                        <table class="clo-sm-12">
+                            <thead>
+                                <tr>
+                                    <th><label>Ingredient Name</label></th>
+                                    <th><label>Amount</label></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                
+                            <tbody>
+                                <tr>
+                                    <td><input class="form-control" name="name[]" type="text" placeholder="Ingredient Name" /></td>
+                                    <td><input class="form-control" name="amount[]" type="text" placeholder="Amount" /></td>
+                                    <td>
+                                        <button class="btn btn-danger btn-remove" type="button">
+                                            <i class="fa fa-minus gs"></i>
+                                            <b>Delete</b>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-success btn-add" type="button">
+                                            <i class="fa fa-plus gs"></i> 
+                                            <b> Add</b>
+                                         </button>
+                                       
+                                    </td>
+                                </tr>
+                            </tbody>
+                
+                        </table>
+                
+                        
+                      
+                    </div>
+
+                    <hr>
+                    <div id="stepContainer">
+                        <div id="step1" class="form-group">
+                              <h3><b>Step 1</b></h3>
+                                  <div class="form-inline">
+                                      <button type="button" name="deleteStep" class=" delete btn btn-danger" >Delete Step</button>
+                                      <label for="image-upload" class="create-btn btn btn-success float-right" style="margin-left: 3%;">
+                                            Add image
+                                      </label>
+                                      <input id="image-upload" name="image-upload1" type="file" style="display:none;" 
+                                accept="image/x-png,image/gif,image/jpeg" multiple/>
+                              
+                                  </div>
+                                          <br>
+                                          <div class="form-group">
+                                              <textarea name="sContent1" cols="88" rows="8" placeholder="Your step Detail here..." class="form-control"></textarea>
+                                          </div>
+                          <div id="preview1" class="imagePreview form-group">
+                          
+                          </div>
+                        </div>
+                    </div>
+						
+						          <button type="button" id="addDay" class="  btn btn-success" onclick="duplicate()">Add Another Step</button>
+                   
+                        <hr>
+                        <div class="update-btn pull-right">
+                            <button type="button" id="update" class=" btn btn-success" onclick="#">Add new Recipe</button>
+                            <a href="createRecipe.html"><button type="button" id="cancel" class=" btn btn-danger">Cancel</button></a>
+
+
+                        </div>
+              
+                </div>
+
+               
+                
+
+                
+
+
+
+
+
+
+
+            
+            
+            
+            </form>
+         
+            
+
+        
+
+
+        </div>
+       <!--main content-->
+
+      </div>
+      
+      <!--Footer-->
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+          <div class="row">
+            <div class="col-12 col-md">
+              
+              <small class="d-block mb-3 text-muted">&copy; 2018 - Food Maker</small>
+            </div>
+            <div class="col-6 col-md">
+              <h5>Recipe - Types</h5>
+              <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Chinese Food </a></li>
+                <li><a class="text-muted" href="#">Vietnam Food</a></li>
+                <li><a class="text-muted" href="#">Italy Food</a></li>
+                <li><a class="text-muted" href="#">Thailand Food</a></li>
+                <li><a class="text-muted" href="#">Ukraine Food</a></li>
+                <li><a class="text-muted" href="#">Greece Food</a></li>
+              </ul>
+            </div>
+  
+    
+            <div class="col-6 col-md">
+              <h5>Made By:</h5>
+              <ul class="list-unstyled text-small">
+                
+                <li class="text-muted">Judah Bennett</li>
+                <li class="text-muted">Guoqing Chen</li>
+                <li class="text-muted">Momoka Matsubara Park
+                  </li>
+                <li class="text-muted"> Lingyun Xie
+                  </li>
+                  <li class="text-muted"> Tina Yao
+                    </li>
+  
+                
+              </ul>
+            </div>
+          </div>
+    </footer>
+    </div>
+
+   
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+    
+    <script type="text/javascript" src="js/backTop.js"></script>
+   
+  </body>
+</html>
