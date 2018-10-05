@@ -33,7 +33,8 @@
       </nav>
       <a class="btn btn-primary" href="signUp.html">Sign up</a>
     </div>
-	<!--This part is the same as before-->
+
+  <!--breadcrumb-->
 	<div class="breadcrumb">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
@@ -43,14 +44,16 @@
             </ol>
         </nav>
     </div>
+    <!--/breadcrumb-->
 
-	<!--It all starts from this container, I made it width 50% because it seemed like they wanted it abit narrower-->
 	<div class="container" style="width:50%;">
 		<!--Always have heading before the row-->
 		<h2>Recipe Name</h2>
-		<!--The row starts here and this row is the carousel row-->
-		<div class="row">
-			<!--This has just one column and it has 12 width--->
+
+    <!--carousel-->
+
+    <div class="row">
+
 			<div class="col-sm-12">
 				<div id="carouselWithControls" class="carousel slide container" data-ride="carousel">
 				  <div class="carousel-inner" role="listbox">
@@ -75,7 +78,9 @@
 				</div>
 			</div>
 		</div>
-		<!--This row is the time cost shit-->
+    <!--/carousel-->
+
+    <!--Time, Cost, Difficulty Badges-->
 		<div class="row">
 			<!--This has 2 columns and the time cost difficulty is the major factor so 10 width, i couldve done 6 and 6 but more stuff to write on inline css-->
 			<div class="col-sm-10">
@@ -89,7 +94,9 @@
 				<span style="font-size:12px;">DD-MM-YYY</span>
 			</div>
 		</div>
-		<!---New section of the html and this one is for the ingredients, keep in mind that this is all in the same container-->
+    <!--/Time, Cost, Difficulty Badges-->
+
+		<!---ingredients-->
 		<h3 style="padding-top:2%; padding-bottom:2%;">Ingredient</h3>
 		<div class="row">
 			<table class="table">
@@ -119,11 +126,11 @@
 			  </tbody>
 			</table>
 		</div>
+    <!---/ingredients-->
+
 
 		<h3 style="padding-bottom:5px;">Steps</h3>
 		<div class="row recipe-method-container" style="padding-bottom:2%;">
-			<!--There are 2 column in this row, 6 and 6 together and 6 occupies the step and 6 occupies the image-->
-
       <ul class="recipe-method-step-content">
         <li class="row">
           <div class="col-sm-1recipe-method-step-number">
@@ -152,7 +159,6 @@
       </ul>
 
 		</div>
-		<!--New row and same concept as the before row-->
 	</div>
 
 
