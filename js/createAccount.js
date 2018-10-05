@@ -23,7 +23,7 @@ function checkInput(){
 			data: {"callCreateAccount":input},
 		success: function(data){
 			console.log(data);
-			if (data == "sucess"){
+			if (data == "success"){
 				// to be changed
 				window.location.href = 'index.html';
 			} else {
