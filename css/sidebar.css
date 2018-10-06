@@ -57,3 +57,7 @@ color: white;
 padding: 2%;
 }
 
+#searchResult{
+	display:none;
+}
+

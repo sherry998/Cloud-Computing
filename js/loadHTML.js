@@ -1,40 +1,91 @@
 $(document).ready(function(){ 
-
+	var inited = false;
      var loading = $(function(){
-      $("#header").load("header.html"); 
-      $("#footer").load("footer.html"); 
+		  if ( $("#header").length != 0){
+			  $("#header").load("header.html"); 
+			  $("#footer").load("footer.html"); 
+			  getCurrentSession();
+		  }
 	});
-
 	
-	
-	
-	$.when(loading ).done(function() {
-		
-		getCurrentSession();
 		
 	var pathname = window.location.pathname;
 	
 	if(pathname.includes("result")||pathname.includes("recipe")){
 		loadRecipe();
 	}
-	});
 });
 
 
 function getCurrentSession(){
-	/*$.ajax({
+	
+	$.ajax({
 		url: 'php/login.php',
 		type: 'post',
 		data: {"callGetSession":""},
 		success: function(data){
+			console.log(data);
 			if (data!="fail"){
-				console.log(data);
+				$( "#signinDiv" ).css( "display", "none" );
+				$( "#loggedinDiv" ).css( "display", "block" );
+				$( "#usernameDisplay" ).text(data);
 			}
 		},
 		error: function(data){
 			console.log("error");
 		}
-	});*/
+	});
+}
+
+function checkLogin(){
+	var username = $('#inputUsername').val();
+	var psw = $('#inputPassword').val();
+
+	if (username == "" || username == null || psw == "" || psw == null){
+		$( "#error" ).text("Password or username cannot be empty.");
+		$( ".errorMessage" ).css( "display", "block" );
+	} else if (/^[a-zA-Z0-9- ]*$/.test(username) == false ||
+		/^[a-zA-Z0-9- ]*$/.test(psw) == false){
+		$( "#error" ).text("Special characters not allowed");
+		$( ".errorMessage" ).css( "display", "block" );
+	} else {
+		$( ".errorMessage" ).css( "display", "none" );
+		var input = username + ":" + psw;
+		$.ajax({
+			url: 'php/login.php',
+			type: 'post',
+			data: {"callLogin":input},
+		success: function(data){
+			console.log(data);
+			if (data == "success"){
+				getCurrentSession();
+			} else {
+				$( "#error" ).text("Username or password incorrect.");
+				$( ".errorMessage" ).css( "display", "block" );
+			}
+		},
+		error: function(data){
+			$( "#error" ).text("Something went wrong, please try again later.");
+			$( ".errorMessage" ).css( "display", "block" );
+		}
+		});
+	}
+}
+
+function logout(){
+	$.ajax({
+		url: 'php/login.php',
+		type: 'post',
+		data: {"callLogout":""},
+		success: function(data){
+			$( "#loggedinDiv" ).css( "display", "none" );
+			window.location.href = 'index.html';
+			$( "#signinDiv" ).css( "display", "block" );
+		},
+		error: function(data){
+			console.log("error");
+		}
+	});
 }
 
 function search(){

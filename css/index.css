@@ -45,3 +45,20 @@ h6 {
 .masthead h1 {
   font-size: 2.5rem;
 }
+
+.errorMessage{
+	border: 1px solid red;
+	background-color: #fcbdbd;
+	color: red;
+	margin-bottom:1em;	
+	display:none;
+}
+
+#error{
+	margin-top:0.5em;
+	margin-bottom:0.5em;
+}
+
+#loggedinDiv{
+	display:none;
+}

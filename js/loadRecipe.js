@@ -2,13 +2,18 @@ function loadRecipe(){
 	getURLParameter(window.location.href );
 	var title = getURLParameter('title');
 	var nationality = getURLParameter('nationality');
-	var data;
 	if (title != null){
-		data = "title:"+title.toLowerCase();	
+		getRecipe("title:"+title.toLowerCase());	
 	} else if (nationality != null){
-		data = "nationality:"+nationality;
+		getRecipe("nationality:"+nationality);
+	} else{
+		$( "#searchResult" ).css( "display", "none" );
+		$( "#noResultDisplay" ).css( "display", "block" );
 	}
 	
+}
+
+function getRecipe(data){
 	$.ajax({
 			url: 'php/retrieveRecipeInfo.php',
 			type: 'post',
@@ -23,6 +28,8 @@ function loadRecipe(){
 				
 			} else {
 				console.log("no data matched");
+				$( "#searchResult" ).css( "display", "none" );
+				$( "#noResultDisplay" ).css( "display", "block" );
 			}
 		},
 		error: function(data){
@@ -33,6 +40,8 @@ function loadRecipe(){
 }
 
 function generateResult(data){
+	$( "#searchResult" ).css( "display", "block" );
+	$( "#noResultDisplay" ).css( "display", "none" );
 	// loop through each recipe from the json
 	for(result in data) {
 		// get title, date etc. for each recipe

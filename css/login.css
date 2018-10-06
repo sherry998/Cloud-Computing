@@ -23,15 +23,4 @@ body {
   font-size: 16px;
 }
 
-.errorMessage{
-	border: 1px solid red;
-	background-color: #fcbdbd;
-	color: red;
-	margin-bottom:1em;	
-	display:none;
-}
 
-#error{
-	margin-top:0.5em;
-	margin-bottom:0.5em;
-}
