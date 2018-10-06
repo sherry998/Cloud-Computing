@@ -1,15 +1,28 @@
 $(document).ready(function(){ 
-	
-	$(function(){
-	  $("#header").load("header.html"); 
-	  $("#footer").load("footer.html"); 
+
+     var loading = $(function(){
+      $("#header").load("header.html"); 
+      $("#footer").load("footer.html"); 
 	});
-	getCurrentSession();
+
+	
+	
+	
+	$.when(loading ).done(function() {
+		
+		getCurrentSession();
+		
+	var pathname = window.location.pathname;
+	
+	if(pathname.includes("result")||pathname.includes("recipe")){
+		loadRecipe();
+	}
+	});
 });
 
 
 function getCurrentSession(){
-	$.ajax({
+	/*$.ajax({
 		url: 'php/login.php',
 		type: 'post',
 		data: {"callGetSession":""},
@@ -21,5 +34,14 @@ function getCurrentSession(){
 		error: function(data){
 			console.log("error");
 		}
-	});
+	});*/
+}
+
+function search(){
+	var keyword = $("#searchBar").val();
+	window.location.href = "result.html?title="+keyword;
+}
+
+function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 }
