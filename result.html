@@ -28,57 +28,225 @@
 	<div id="header"></div>
 	
     
-    <div class="container">
+    <div class="container content">
+		<div class="row">
+			<!-- Sidebar -->
+			<div class="col-sm-3 border-right">
+				<h4>Ingredients</h4>
+				<p>Filter what type of ingredient you want to include!</p>
+				<button type="button" class="btn btn-info filterBtn" data-toggle="collapse" data-target="#demo"> 
+				<img class="foodIcon" src="img/milk.png"/>Dairy <img src="img/angle-arrow-down.png" class="right"/> </button> 
+					<div id="demo" class="collapse">
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+					</div> 
+					
+				<button type="button" class="btn btn-success filterBtn" data-toggle="collapse" data-target="#demo1"> 
+				<img class="foodIcon" src="img/salad.png"/>Vegetables <img src="img/angle-arrow-down.png" class="right"/></button>
+					<div id="demo1" class="collapse">
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+					</div>   
+					
+				<button type="button" class="btn btn-warning filterBtn" data-toggle="collapse" data-target="#demo2"> 
+				<img class="foodIcon" src="img/apple.png"/>Fruits <img src="img/angle-arrow-down.png" class="right"/></button>
+					<div id="demo2" class="collapse">
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+					</div> 
+				
+				<button type="button" class="btn btn-danger filterBtn" data-toggle="collapse" data-target="#demo3"> 
+				<img class="foodIcon" src="img/steak.png"/>Meats <img src="img/angle-arrow-down.png" class="right"/></button>
+					<div id="demo3" class="collapse">
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+					</div>
+				
+				<button type="button" class="btn btn-primary filterBtn" data-toggle="collapse" data-target="#demo4"> 
+				<img class="foodIcon" src="img/fish.png"/>Seafood <img src="img/angle-arrow-down.png" class="right"/></button>
+					<div id="demo4" class="collapse">
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+						<span class="check"><input type="checkbox" name="food">food</span>
+					</div>
+			</div>
 	
-		<!-- Sidebar -->
-		<div class=" side col-sm-3 border-right">
-			<h4>Ingredients</h4>
-			<p>Filter what type of ingredient you want to include!</p>
-			<button type="button" class="btn btn-info filterBtn" data-toggle="collapse" data-target="#demo"> 
-			<img class="foodIcon" src="img/milk.png"/>Dairy <img src="img/angle-arrow-down.png" class="right"/> </button> 
-				<div id="demo" class="collapse">
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-				</div> 
-				
-			<button type="button" class="btn btn-success filterBtn" data-toggle="collapse" data-target="#demo1"> 
-			<img class="foodIcon" src="img/salad.png"/>Vegetables <img src="img/angle-arrow-down.png" class="right"/></button>
-				<div id="demo1" class="collapse">
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-				</div>   
-				
-			<button type="button" class="btn btn-warning filterBtn" data-toggle="collapse" data-target="#demo2"> 
-			<img class="foodIcon" src="img/apple.png"/>Fruits <img src="img/angle-arrow-down.png" class="right"/></button>
-				<div id="demo2" class="collapse">
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-				</div> 
-			
-			<button type="button" class="btn btn-danger filterBtn" data-toggle="collapse" data-target="#demo3"> 
-			<img class="foodIcon" src="img/steak.png"/>Meats <img src="img/angle-arrow-down.png" class="right"/></button>
-				<div id="demo3" class="collapse">
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
+			<div class="col-sm-9 container">
+				<div class="row mb-2">
+					<div class="col-sm-4">
+								<div class=" resultImg mb-2">
+									<a href="recipe.html"><img class="summaryImg rounded img-fluid" src="img/bg.jpg" ></a>
+									<div class="bottom-right rounded"><small>Food Type</small></div>
+								</div>
+									<div class="row">
+											<h6 class="col "> <a class="text-dark" href="recipe.html">Recipe Name</a></h6>
+											<h6 class="col text-muted text-right"><small>2018-09-21</small>
+												
+											</h6>
+									</div>
+									<div class="tag">
+												<span class="badge badge-secondary">Time cost</span>
+												<span class="badge badge-secondary">cost</span>
+												<span class="badge badge-secondary">Level</span>
+												<div class="pull-right">
+														<span class="badge badge-success "> 99 <i class="fa fa-thumbs-up ml-1"></i> </span>
+												</div>
+												
+												<hr class="mb-3">
+												
+												
+									</div>
+					</div>
+					<div class="col-sm-4">
+							<div class=" resultImg mb-2">
+								<a href="recipe.html"><img class="summaryImg rounded img-fluid" src="img/bg.jpg" ></a>
+								<div class="bottom-right rounded"><small>Food Type</small></div>
+							</div>
+								<div class="row">
+										<h6 class="col "> <a class="text-dark" href="recipe.html">Recipe Name</a></h6>
+										<h6 class="col text-muted text-right"><small>2018-09-21</small>
+											
+										</h6>
+								</div>
+								<div class="tag">
+											<span class="badge badge-secondary">Time cost</span>
+											<span class="badge badge-secondary">cost</span>
+											<span class="badge badge-secondary">Level</span>
+											
+													<span class="badge badge-success "> 99 <i class="fa fa-thumbs-up ml-1"></i> </span>
+											
+											<hr class="mb-3">
+											
+											
+								</div>
+					</div>
+					<div class="col-sm-4">
+						<div class=" resultImg mb-2">
+							<a href="recipe.html"><img class="summaryImg rounded img-fluid" src="img/bg.jpg" ></a>
+							<div class="bottom-right rounded"><small>Food Type</small></div>
+						</div>
+							<div class="row">
+									<h6 class="col "> <a class="text-dark" href="recipe.html">Recipe Name</a></h6>
+									<h6 class="col text-muted text-right"><small>2018-09-21</small>
+										
+									</h6>
+							</div>
+							<div class="tag">
+										<span class="badge badge-secondary">Time cost</span>
+										<span class="badge badge-secondary">cost</span>
+										<span class="badge badge-secondary">Level</span>
+										
+												<span class="badge badge-success "> 99 <i class="fa fa-thumbs-up ml-1"></i> </span>
+										
+										<hr class="mb-3">
+										
+										
+							</div>
+				    </div>
 				</div>
-			
-			<button type="button" class="btn btn-primary filterBtn" data-toggle="collapse" data-target="#demo4"> 
-			<img class="foodIcon" src="img/fish.png"/>Seafood <img src="img/angle-arrow-down.png" class="right"/></button>
-				<div id="demo4" class="collapse">
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
-					<span class="check"><input type="checkbox" name="food">food</span>
+
+				<div class="row mb-2">
+						<div class="col-sm-4">
+							<div class=" resultImg mb-2">  
+								<a href="recipe.html"><img class="summaryImg rounded img-fluid " src="img/asia-food.jpg" ></a>
+								<div class="bottom-right rounded"><small>Food Type</small></div>
+							</div>
+									<div class="row">
+											<h6 class="col "> <a class="text-dark" href="recipe.html">Recipe Name</a></h6>
+											<h6 class="col text-muted text-right"><small>2018-09-21</small>
+												
+											</h6>
+									</div>
+									<div class="tag">
+												<span class="badge badge-secondary">Time cost</span>
+												<span class="badge badge-secondary">cost</span>
+												<span class="badge badge-secondary">Level</span>
+												<div class="pull-right">
+														<span class="badge badge-success "> 99 <i class="fa fa-thumbs-up ml-1"></i> </span>
+												</div>
+												<hr class="mb-3">
+												
+												
+									</div>
+						</div>
+						<div class="col-sm-4">
+								<div class=" resultImg mb-2">  
+									<a href="recipe.html"><img class="summaryImg rounded img-fluid " src="img/asia-food.jpg" ></a>
+									<div class="bottom-right rounded"><small>Food Type</small></div>
+								</div>
+										<div class="row">
+												<h6 class="col "> <a class="text-dark" href="recipe.html">Recipe Name</a></h6>
+												<h6 class="col text-muted text-right"><small>2018-09-21</small>
+													
+												</h6>
+										</div>
+										<div class="tag">
+													<span class="badge badge-secondary">Time cost</span>
+													<span class="badge badge-secondary">cost</span>
+													<span class="badge badge-secondary">Level</span>
+													<div class="pull-right">
+															<span class="badge badge-success "> 99 <i class="fa fa-thumbs-up ml-1"></i> </span>
+													</div>
+													<hr class="mb-3">
+													
+													
+										</div>
+						</div>
+						<div class="col-sm-4">
+								<div class=" resultImg mb-2">  
+									<a href="recipe.html"><img class="summaryImg rounded img-fluid " src="img/asia-food.jpg" ></a>
+									<div class="bottom-right rounded"><small>Food Type</small></div>
+								</div>
+										<div class="row">
+												<h6 class="col "> <a class="text-dark" href="recipe.html">Recipe Name</a></h6>
+												<h6 class="col text-muted text-right"><small>2018-09-21</small>
+													
+												</h6>
+										</div>
+										<div class="tag">
+													<span class="badge badge-secondary">Time cost</span>
+													<span class="badge badge-secondary">cost</span>
+													<span class="badge badge-secondary">Level</span>
+													<div class="pull-right">
+															<span class="badge badge-success "> 99 <i class="fa fa-thumbs-up ml-1"></i> </span>
+													</div>
+													<hr class="mb-3">
+													
+													
+										</div>
+						</div>
 				</div>
+
+				<div>
+						<ul class="pagination justify-content-center" style="margin:20px 0">
+								<li class="page-item"><a class="page-link text-dark" href="#">Previous</a></li>
+								<li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
+								<li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+								<li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+								<li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
+						</ul>
+
+
+						<button type="button" class="text-center mx-auto col-md-8 btn btn-lg btn-block btn-info"> Find out more  <i class="fa fa-caret-down	Try it
+							"></i></button>
+
+
+							  
+
+				</div>
+			</div>
+			
 		</div>
+	
 		
 		
 		<!--Footer-->

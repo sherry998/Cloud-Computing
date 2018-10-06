@@ -1,6 +1,9 @@
 .side{
-	margin-top:2%;
 	max-width: 21%;
+}
+
+.content{
+	margin-top:2%;
 }
 
 .foodIcon{
@@ -35,3 +38,22 @@ input[type="checkbox"]{
 	position: absolute;
 	margin-top:2.5%;
 }
+
+.summaryImg{
+width:100%;
+}
+
+.resultImg{
+    position: relative;
+
+}
+
+.bottom-right {
+    position: absolute;
+bottom: 0px;
+right: 0px;
+background-color: rgba(0, 0, 0, 0.58);
+color: white;
+padding: 2%;
+}
+
