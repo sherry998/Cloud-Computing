@@ -61,3 +61,11 @@
 	width:200px;
 	height: auto;
 }
+
+.stepsContainter{
+	margin-bottom: 30px;
+}
+
+#noInfo{
+	display: none;
+}

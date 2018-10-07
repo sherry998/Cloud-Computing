@@ -1,4 +1,6 @@
-$(document).ready(function(){ 
+var username = null;
+
+$(document).ready(function(){
 	var inited = false;
      var loading = $(function(){
 		  if ( $("#header").length != 0){
@@ -11,9 +13,9 @@ $(document).ready(function(){
 		
 	var pathname = window.location.pathname;
 	
-	if(pathname.includes("result")||pathname.includes("recipe")){
-		loadRecipe();
-	}
+	if(pathname.includes("result")||pathname.includes("recipe")) {
+        loadRecipe();
+    }
 });
 
 
@@ -29,10 +31,12 @@ function getCurrentSession(){
 				$( "#signinDiv" ).css( "display", "none" );
 				$( "#loggedinDiv" ).css( "display", "block" );
 				$( "#usernameDisplay" ).text(data);
+                username = data;
 			}
 		},
 		error: function(data){
 			console.log("error");
+            username = null;
 		}
 	});
 }
@@ -62,11 +66,13 @@ function checkLogin(){
 			} else {
 				$( "#error" ).text("Username or password incorrect.");
 				$( ".errorMessage" ).css( "display", "block" );
+                username = null;
 			}
 		},
 		error: function(data){
 			$( "#error" ).text("Something went wrong, please try again later.");
 			$( ".errorMessage" ).css( "display", "block" );
+            username = null;
 		}
 		});
 	}
@@ -81,11 +87,20 @@ function logout(){
 			$( "#loggedinDiv" ).css( "display", "none" );
 			window.location.href = 'index.html';
 			$( "#signinDiv" ).css( "display", "block" );
+            username = null;
 		},
 		error: function(data){
 			console.log("error");
 		}
 	});
+}
+
+function checkLogged(){
+	if (username != null){
+        window.location.href = "createRecipe.html";
+	} else {
+        window.location.href = "login.html";
+	}
 }
 
 function search(){

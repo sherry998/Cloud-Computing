@@ -62,3 +62,7 @@ h6 {
 #loggedinDiv{
 	display:none;
 }
+
+.clickable{
+    cursor:pointer;
+}
