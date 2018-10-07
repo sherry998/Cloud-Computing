@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|Roboto');
 
-
 body {
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
 }
 
 h1,
@@ -11,58 +10,58 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
-  font-weight: 700;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-weight: 700;
 }
 
 .container {
-  max-width: 1200px;
+    max-width: 1200px;
 }
 
 .card-deck .card {
-  min-width: 220px;
+    min-width: 220px;
 }
 
 .masthead {
-  position: relative;
+    position: relative;
 
-  background: url("../img/bg.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 10rem;
-  padding-bottom: 8rem;
+    background: url("../img/bg.jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 10rem;
+    padding-bottom: 8rem;
 }
 
 .masthead .overlay {
-  position: absolute;
-  background-color: black;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
+    position: absolute;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
 }
 
 .masthead h1 {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
-.errorMessage{
-	border: 1px solid red;
-	background-color: #fcbdbd;
-	color: red;
-	margin-bottom:1em;	
-	display:none;
+.errorMessage {
+    border: 1px solid red;
+    background-color: #fcbdbd;
+    color: red;
+    margin-bottom: 1em;
+    display: none;
 }
 
-#error{
-	margin-top:0.5em;
-	margin-bottom:0.5em;
+#error {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
-#loggedinDiv{
-	display:none;
+#loggedinDiv {
+    display: none;
 }
 
-.clickable{
-    cursor:pointer;
+.clickable {
+    cursor: pointer;
 }

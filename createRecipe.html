@@ -1,145 +1,145 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
- 
+
 
     <title> Food Maker</title>
 
-   <!-- Bootstrap core CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom styles for Food Maker Website -->
     <link href="css/index.css" rel="stylesheet">
     <link href="css/profile.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
-
-    
-     
-	    <!--menu-->
-       <div id="header"></div>
-       <!--menu-->
-   
+<body>
 
 
-    
-    <div class="container ">
-      <div class="row ">
-       
+<!--menu-->
+<div id="header"></div>
+<!--menu-->
 
-      <!--main content-->
+
+<div class="container ">
+    <div class="row ">
+
+
+        <!--main content-->
         <div class="col-md-10 content">
             <h2><b>Create New Recipe</b></h2>
             <hr>
-          <!-- Recipe input form start here-->
-            <form  action="#" method="post" id="" >
+            <!-- Recipe input form start here-->
+            <form action="#" method="post" id="">
 
-               <!-- Recipe title input here-->
-                    <div class="form-group">
-                        <label for="title"><b>Title</b></label>  
-                        <div class="input-group " > 
-                          <div class="input-group-prepend">
+                <!-- Recipe title input here-->
+                <div class="form-group">
+                    <label><b>Title</b></label>
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-pencil"></i></span>
-                          </div>
+                        </div>
 
-                          <input type="text" name="title" id="recipeTitle" class="form-control" placeholder="Enter title here" autocomplete="off">
-                        </div> 
-                    </div>  
+                        <input type="text" name="title" id="recipeTitle" class="form-control"
+                               placeholder="Enter title here" autocomplete="off">
+                    </div>
+                </div>
                 <!-- Recipe title input here-->
 
                 <div id="simpleInfro" class="form-group">
 
                     <div class="from-group row">
-                       <!--  Nationality input here-->
+                        <!--  Nationality input here-->
                         <div class="col-sm-6">
-                            <label for="nationality"><b>Nationality</b></label> 
-                            <div class="input-group " >
+                            <label for="nationality"><b>Nationality</b></label>
+                            <div class="input-group ">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-globe"></i></span>
                                 </div>
 
                                 <select class="custom-select" id="recipeType" name="type">
                                     <option value="vF">Vietnam Food</option>
-                                    <option value="cF">Chinese Food	</option>
+                                    <option value="cF">Chinese Food</option>
                                     <option value="iF">Italy Food</option>
                                     <option value="tF">Thailand Food</option>
                                     <option value="uF">Ukraine Food</option>
                                     <option value="gF">Greece Food</option>
                                     <option value="o">Others</option>
-                                </select>                           
-                             
+                                </select>
+
                             </div>
                         </div>
 
                         <!--  Time input here-->
                         <div class="col-sm-6">
-                            <label for="time"><b>Time</b></label> 
-                          <div class="input-group row">
-                            <div class="input-group col-sm-6">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                            <label for="time"><b>Time</b></label>
+                            <div class="input-group row">
+                                <div class="input-group col-sm-6">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Hours" type="number" id="hour">
                                 </div>
-                                <input class="form-control" placeholder="Hours" type="number" id="hour">
-                            </div>
-                            <div class="input-group col-sm-6">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                <div class="input-group col-sm-6">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Mintues" type="number" id="mintues">
                                 </div>
-                                <input class="form-control" placeholder="Mintues" type="number" id="mintues">
                             </div>
-                          </div>
-                        </div>
-                    
-                    </div>
-      
-                     <br>
-                    <div class="from-group row">
-                       <!-- Difficult level input here-->
-                        <div class="col-sm-6">
-                            <label for="level"><b>Difficulty Level</b></label>
-                          <div class="input-group ">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-bolt"></i></span>
-                            </div>
-                
-                            <select class="custom-select" id="recipeLevel" name="type">
-                                <option value="ve">Very Easy</option>
-                                <option value="e">Easy	</option>
-                                <option value="m">Middle</option>
-                                <option value="h">Hard</option>
-                                <option value="vh">Very Hard</option>
-                            </select>
-                          </div>
-                        </div>
-                        <!-- recipe overall cost input here-->
-                        <div class="col-sm-6" >
-                           
-                                <label for="cost"><b>Cost</b></label>
-                                <div class="input-group">
-                                  <div class="input-group-prepend">
-                                      <span class="input-group-text">$</span>
-                                  </div>
-                                    <input class="form-control" type="number" name="cost" id="cost" value= 0>
-                                </div>
                         </div>
 
-                    
+                    </div>
+
+                    <br>
+                    <div class="from-group row">
+                        <!-- Difficult level input here-->
+                        <div class="col-sm-6">
+                            <label for="level"><b>Difficulty Level</b></label>
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-bolt"></i></span>
+                                </div>
+
+                                <select class="custom-select" id="recipeLevel" name="type">
+                                    <option value="ve">Very Easy</option>
+                                    <option value="e">Easy</option>
+                                    <option value="m">Middle</option>
+                                    <option value="h">Hard</option>
+                                    <option value="vh">Very Hard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- recipe overall cost input here-->
+                        <div class="col-sm-6">
+
+                            <label for="cost"><b>Cost</b></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input class="form-control" type="number" name="cost" id="cost" value=0>
+                            </div>
+                        </div>
+
+
                     </div>
 
                     <br>
 
                     <!-- recipe featured image UPLOAD here-->
-                    <label for="main-upload" class="btn btn-primary col-md-auto" >
+                    <label for="main-upload" class="btn btn-primary col-md-auto">
                         Add featured image
                     </label>
-                    <input id="main-upload" name="main-upload" type="file" style="display:none;" accept="image/x-png,image/gif,image/jpeg" />
+                    <input id="main-upload" name="main-upload" type="file" style="display:none;"
+                           accept="image/x-png,image/gif,image/jpeg"/>
 
                     <hr>
                     <!-- recipe Ingredient Input form -->
@@ -147,132 +147,121 @@
                     <div class="from-group">
                         <table class="clo-sm-12 mb-3">
                             <thead class="clo-sm-12">
-                                <tr>
-                                    <th><label>Ingredient Name</label></th>
-                                    <th><label>Amount</label></th>
-                                    <th></th>
-                                </tr>
+                            <tr>
+                                <th><label>Ingredient Name</label></th>
+                                <th><label>Amount</label></th>
+                                <th></th>
+                            </tr>
                             </thead>
-                
+
                             <tbody>
-                                <tr>
-                                    <td>
-                                      <input class="form-control" name="name[]" type="text" placeholder="Ingredient Name" />
-                                    </td>
-                                    <td>
-                                      <input class="form-control" name="amount[]" type="text" placeholder="Amount" />
-                                    </td>
-                                    <td>
-                                        <!-- Ingredient Input delete button -->
-                                        <button class="btn btn-danger btn-remove" type="button"><i class="fa fa-minus gs mr-1"></i>Delete
-                                        </button>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    <input class="form-control" name="name[]" type="text"
+                                           placeholder="Ingredient Name"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" name="amount[]" type="text" placeholder="Amount"/>
+                                </td>
+                                <td>
+                                    <!-- Ingredient Input delete button -->
+                                    <button class="btn btn-danger btn-remove" type="button"><i
+                                            class="fa fa-minus gs mr-1"></i>Delete
+                                    </button>
+                                </td>
+                            </tr>
                             </tbody>
-                
-                        </table>  
-                      
+
+                        </table>
+
 
                         <!-- Ingredient Input add button -->
                         <button class="btn btn-success btn-add" type="button">
                             <i class="fa fa-plus gs"></i> Add
-                         </button>
-                        
-                        
+                        </button>
+
+
                     </div>
 
                     <hr>
                     <!-- recipe Step Content Input form -->
                     <div id="stepContainer">
                         <div id="step1" class="form-group">
-                              <h3><b>Step 1</b></h3>
-                                  <div class="form-inline">
-                                      <button type="button" name="deleteStep" class=" delete btn btn-danger" >Delete Step</button>
+                            <h3><b>Step 1</b></h3>
+                            <div class="form-inline">
+                                <button type="button" name="deleteStep" class=" delete btn btn-danger">Delete Step
+                                </button>
 
-                                      <!-- recipe Step Image Upload here-->
-                                      <label for="image-upload" class="create-btn btn btn-primary mb-0" style="margin-left: 2%;">
-                                            Add Step image
-                                      </label>
-                                      <input id="image-upload" name="image-upload1" type="file" style="display:none;" 
-                                accept="image/x-png,image/gif,image/jpeg" multiple/>
-                              
-                                  </div>
-                                          <br>
-                                          <div class="form-group">
-                                              <textarea name="content1" cols="88" rows="8" placeholder="Write Your step Detail here..." class="form-control"></textarea>
-                                          </div>
-                          <div id="preview1" class="imagePreview form-group">
-                          
-                          </div>
+                                <!-- recipe Step Image Upload here-->
+                                <label for="image-upload" class="create-btn btn btn-primary mb-0"
+                                       style="margin-left: 2%;">
+                                    Add Step image
+                                </label>
+                                <input id="image-upload" name="image-upload1" type="file" style="display:none;"
+                                       accept="image/x-png,image/gif,image/jpeg" multiple/>
+
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <textarea name="content1" cols="88" rows="8"
+                                          placeholder="Write Your step Detail here..." class="form-control"></textarea>
+                            </div>
+                            <div id="preview1" class="imagePreview form-group">
+
+                            </div>
                         </div>
                     </div>
-						
-						          <button type="button" id="addStep" class="  btn btn-success" onclick="duplicate()">Add Another Step</button>
-                   
-                        <hr>
-                        <div class="update-btn pull-right">
-                            <button type="button" id="update" class=" btn btn-success" onclick="#">Add new Recipe</button>
-                            <a href="createRecipe.html"><button type="button" id="cancel" class=" btn btn-danger">Cancel</button></a>
+
+                    <button type="button" id="addStep" class="  btn btn-success" onclick="duplicate()">Add Another
+                        Step
+                    </button>
+
+                    <hr>
+                    <div class="update-btn pull-right">
+                        <button type="button" id="update" class=" btn btn-success" onclick="#">Add new Recipe</button>
+                        <a href="createRecipe.html">
+                            <button type="button" id="cancel" class=" btn btn-danger">Cancel</button>
+                        </a>
 
 
-                        </div>
-              
+                    </div>
+
                 </div>
 
-               
-                
 
-                
-
-
-
-
-
-
-
-            
-            
-            
             </form>
-          <!-- Recipe input form end -->
-
-         
-            
-
-        
+            <!-- Recipe input form end -->
 
 
         </div>
-       <!--main content end-->
+        <!--main content end-->
 
-      </div>
-      
-      <!--Footer-->
-      <div id = "footer"></div>
     </div>
 
-   
+    <!--Footer-->
+    <div id="footer"></div>
+</div>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-        </script>
-
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-        </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script>
 
 
-	<script type="text/javascript" src="js/loadHTML.js"></script>
-  <script type="text/javascript" src="js/addRecipe.js"></script>
-    
-   
-   
-  </body>
+<script type="text/javascript" src="js/loadHTML.js"></script>
+<script type="text/javascript" src="js/addRecipe.js"></script>
+
+
+</body>
 </html>

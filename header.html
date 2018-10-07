@@ -1,80 +1,85 @@
-	<!--menu-->
-  <div class="navbar navbar-expand-lg p-3 px-md-4 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal"><a class="text-dark navbar-brand" href="index.html">Food Maker</a></h5>
-      <!--dropdown menu button-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span class="fa fa-reorder"></span>
-      </button>
-      <!--dropdown menu button-->
+<!--menu-->
+<div class="navbar navbar-expand-lg p-3 px-md-4 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal"><a class="text-dark navbar-brand" href="index.html">Food Maker</a>
+    </h5>
+    <!--dropdown menu button-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuDropdown"
+            aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="fa fa-reorder"></span>
+    </button>
+    <!--dropdown menu button-->
 
-      <!--dropdown menu item-->
-      <div class="collapse navbar-collapse" id="menuDropdown">
+    <!--dropdown menu item-->
+    <div class="collapse navbar-collapse" id="menuDropdown">
 
         <ul class="navbar-nav mr-auto ">
-          <li class="nav-item ">
-            <a class="nav-link text-muted" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-muted" href="result.html?get=everything">Recipe</a>
-          </li>
-          <li class="nav-item clickable">
-              <a class="nav-link text-muted" onclick="checkLogged()">Publish</a>
-          </li>
+            <li class="nav-item ">
+                <a class="nav-link text-muted" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-muted" href="result.html?get=everything">Recipe</a>
+            </li>
+            <li class="nav-item clickable">
+                <a class="nav-link text-muted" onclick="checkLogged()">Publish</a>
+            </li>
         </ul>
 
-      <!--dropdown menu search bar-->
+        <!--dropdown menu search bar-->
         <form class="form-inline my-2 my-lg-0 ">
-          <div class="input-group">
-            <input class="form-control" type="search" placeholder="Search" id="searchBar">
-            <div class="input-group-append">
-              <button class="btn btn-outline-primary" type="button" onclick="search()">Search</button>
+            <div class="input-group">
+                <input class="form-control" type="search" placeholder="Search" id="searchBar">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" type="button" onclick="search()">Search</button>
+                </div>
             </div>
-          </div>
         </form>
-      <!--dropdown menu search bar-->
+        <!--dropdown menu search bar-->
 
-      <!--dropdown Login-->
+        <!--dropdown Login-->
         <ul class="navbar-nav " id="#">
-              <li class="nav-item dropdown" >
-                <a class="nav-link dropdown-toggle text-muted clickable" id="dropLogin"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><i class="fa fa-user"></i> Account</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-muted clickable" id="dropLogin" data-toggle="dropdown"
+                   role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Account</a>
 
                 <div class="dropdown-menu dropdown-menu-right">
-					<div id="signinDiv">
-						<form class="px-4 py-3">
-						  <div class="form-group">
-						  <div class="errorMessage">
-								<p id="error">Username or password incorrect.</p>
-							</div>
-							<label for="inputUsername">Username</label>
-							<input type="text" class="form-control" id="inputUsername" placeholder="Username">
-						  </div>
-						  <div class="form-group">
-							<label for="inputPassword">Password</label>
-							<input type="password" class="form-control" id="inputPassword" placeholder="Password">
-						  </div>
-						  
-						 
-						  <button type="button" class="btn btn-primary float-right" onclick="checkLogin()">Sign in</button>
-						  
-						</form>
-	 
-						<div class="text-center dropdown-item">
-							<hr>
-							New here ? <a href="signUp.html"><b>Sign UP NOW!</b></a>
-						</div>
-					</div>
-					
-					<div id="loggedinDiv" class="px-4 py-3">
-						<p id="usernameDisplay">Name</p>
-						
-						<button type="button" class="btn btn-primary float-right" onclick="logout()">Log out</button>
-					</div>
-                    
-                </div>
-              </li>
-      
-        </ul>
-      <!--dropdown Login-->
+                    <div id="signinDiv">
+                        <form class="px-4 py-3">
+                            <div class="form-group">
+                                <div class="errorMessage">
+                                    <p id="error">Username or password incorrect.</p>
+                                </div>
+                                <label for="inputUsername">Username</label>
+                                <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword">Password</label>
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            </div>
 
-      </div>
-       <!--dropdown menu item-->
-  </div>
+
+                            <button type="button" class="btn btn-primary float-right" onclick="checkLogin()">Sign in
+                            </button>
+
+                        </form>
+
+                        <div class="text-center dropdown-item">
+                            <hr>
+                            New here ? <a href="signUp.html"><b>Sign UP NOW!</b></a>
+                        </div>
+                    </div>
+
+                    <div id="loggedinDiv" class="px-4 py-3">
+                        <p id="usernameDisplay">Name</p>
+
+                        <button type="button" class="btn btn-primary float-right" onclick="logout()">Log out</button>
+                    </div>
+
+                </div>
+            </li>
+
+        </ul>
+        <!--dropdown Login-->
+
+    </div>
+    <!--dropdown menu item-->
+</div>

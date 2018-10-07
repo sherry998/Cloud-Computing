@@ -1,145 +1,146 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <title> Food Maker</title>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles for Food Maker Website -->
     <link href="css/index.css" rel="stylesheet">
     <link href="css/recipe.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
-  <!--menu-->
-  <div id="header"></div>
-  <!--menu-->
+<body>
+<!--menu-->
+<div id="header"></div>
+<!--menu-->
 
-	<div class="container" style="width:50%; margin-top:20px;">
+<div class="container" style="width:50%; margin-top:20px;">
 
-		<div id="recipleInfo">
-		<!--Always have heading before the row-->
-		<h2>Recipe Name</h2>
+    <div id="recipleInfo">
+        <!--Always have heading before the row-->
+        <h2>Recipe Name</h2>
 
-    <!--carousel-->
+        <!--carousel-->
 
-    <div class="row">
+        <div class="row">
 
-			<div class="col-sm-12">
-				<img class="d-block w-100" src="img/myR1.jpg" alt="First slide">
-			</div>
-		</div>
-    <!--/carousel-->
+            <div class="col-sm-12">
+                <img class="d-block w-100" src="img/myR1.jpg" alt="First slide">
+            </div>
+        </div>
+        <!--/carousel-->
 
-    <!--Time, Cost, Difficulty Badges-->
-		<div class="row">
-			<!--This has 2 columns and the time cost difficulty is the major factor so 10 width, i couldve done 6 and 6 but more stuff to write on inline css-->
-			<div class="col-sm-10">
-        <span class="badge badge-secondary">0:20 prep</span>
-				<span class="badge badge-secondary">1:20 cook</span>
-				<span class="badge badge-secondary">Difficulty</span>
+        <!--Time, Cost, Difficulty Badges-->
+        <div class="row">
+            <!--This has 2 columns and the time cost difficulty is the major factor so 10 width, i couldve done 6 and 6 but more stuff to write on inline css-->
+            <div class="col-sm-10">
+                <span class="badge badge-secondary">0:20 prep</span>
+                <span class="badge badge-secondary">1:20 cook</span>
+                <span class="badge badge-secondary">Difficulty</span>
 
-			</div>
-			<!--This is second column and so 2 width. 10+2=12 so 12 width all together-->
-			<div class="col-sm-2" style="text-align:right;">
-				<span style="font-size:12px;">DD-MM-YYY</span>
-			</div>
-		</div>
-    <!--/Time, Cost, Difficulty Badges-->
+            </div>
+            <!--This is second column and so 2 width. 10+2=12 so 12 width all together-->
+            <div class="col-sm-2" style="text-align:right;">
+                <span style="font-size:12px;">DD-MM-YYY</span>
+            </div>
+        </div>
+        <!--/Time, Cost, Difficulty Badges-->
 
-		<!---ingredients-->
-		<h3 style="padding-top:2%; padding-bottom:2%;">Ingredient</h3>
-		<div class="row">
-			<table class="table">
-			  <thead>
-				<tr>
-				  <th scope="col">#</th>
-				  <th scope="col">Ingredient</th>
-				  <th scope="col">Amount</th>
-				</tr>
-			  </thead>
-			  <tbody>
-				<tr>
-				  <th scope="row">1</th>
-				  <td>Flour</td>
-				  <td>1 cup</td>
-				</tr>
-				<tr>
-				  <th scope="row">2</th>
-				  <td>Milk</td>
-				  <td>1/2 cup</td>
-				</tr>
-				<tr>
-				  <th scope="row">3</th>
-				  <td>Sugar</td>
-				  <td>5 tbsp</td>
-				</tr>
-			  </tbody>
-			</table>
-		</div>
-    <!---/ingredients-->
+        <!---ingredients-->
+        <h3 style="padding-top:2%; padding-bottom:2%;">Ingredient</h3>
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ingredient</th>
+                    <th scope="col">Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Flour</td>
+                    <td>1 cup</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Milk</td>
+                    <td>1/2 cup</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Sugar</td>
+                    <td>5 tbsp</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!---/ingredients-->
 
 
-		<h3 style="padding-bottom:5px;">Steps</h3>
-		<div class="row recipe-method-container" style="padding-bottom:2%;">
-      <ul class="recipe-method-step-content">
-        <li class="row stepsContainter">
-          <div class="col-sm-1recipe-method-step-number">
-            <p>Step 1</p>
-          </div>
-          <div class="col-sm-5 recipe-method-content">
+        <h3 style="padding-bottom:5px;">Steps</h3>
+        <div class="row recipe-method-container" style="padding-bottom:2%;">
+            <ul class="recipe-method-step-content">
+                <li class="row stepsContainter">
+                    <div class="col-sm-1recipe-method-step-number">
+                        <p>Step 1</p>
+                    </div>
+                    <div class="col-sm-5 recipe-method-content">
             <span>Lorem ipsum dolor sit amet, has exerci latine facilisi ei, pri ne etiam movet mucius. Eros bonorum consulatu id sea, ei decore audire
     				neglegentur vis, his omnium scripserit ne. Nam nominavi praesent cu, ne duis lucilius comprehensam vix. Dicta platonem omittantur ad nec.</span>
-          </div>
-          <div class=" col-sm-6 recipe-method-image">
-            <img src="img/Italy.jpg" alt="Step 1">
-          </div>
-        </li>
-        <li class="row stepsContainter">
-          <div class="col-sm-1recipe-method-step-number">
-            <p>Step 2</p>
-          </div>
-          <div class="col-sm-5 recipe-method-content">
+                    </div>
+                    <div class=" col-sm-6 recipe-method-image">
+                        <img src="img/Italy.jpg" alt="Step 1">
+                    </div>
+                </li>
+                <li class="row stepsContainter">
+                    <div class="col-sm-1recipe-method-step-number">
+                        <p>Step 2</p>
+                    </div>
+                    <div class="col-sm-5 recipe-method-content">
             <span>Lorem ipsum dolor sit amet, has exerci latine facilisi ei, pri ne etiam movet mucius. Eros bonorum consulatu id sea, ei decore audire
     				neglegentur vis, his omnium scripserit ne.
-          </div>
-          <div class=" col-sm-6 recipe-method-image">
-            <img src="img/Italy.jpg" alt="Step 1">
-          </div>
-        </li>
-      </ul>
+                    </div>
+                    <div class=" col-sm-6 recipe-method-image">
+                        <img src="img/Italy.jpg" alt="Step 1">
+                    </div>
+                </li>
+            </ul>
 
-		</div>
-		</div>
-		<div id="noInfo">
-			<p>The recipe you are looking for doesn't exists :(</p>
-		</div>
-		<!--Footer-->
-      <div id = "footer"></div>
-	</div>
-
-
+        </div>
+    </div>
+    <div id="noInfo">
+        <p>The recipe you are looking for doesn't exists :(</p>
+    </div>
+    <!--Footer-->
+    <div id="footer"></div>
+</div>
 
 
-      <!-- Bootstrap core JavaScript
-      ================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
 
-	  <script type="text/javascript" src="js/loadHTML.js"></script>
-  <script type="text/javascript" src="js/loadRecipe.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script>
 
-    </body>
+<script type="text/javascript" src="js/loadHTML.js"></script>
+<script type="text/javascript" src="js/loadRecipe.js"></script>
 
-  </html>
+</body>
+
+</html>
