@@ -42,38 +42,42 @@
                    role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Account</a>
 
                 <div class="dropdown-menu dropdown-menu-right">
-                    <div id="signinDiv">
-                        <form class="px-4 py-3">
-                            <div class="form-group">
-                                <div class="errorMessage">
-                                    <p id="error">Username or password incorrect.</p>
+
+                        <div id="signinDiv">
+                                <form class="px-4 py-3">
+                                    <div class="form-group">
+                                        <div class="errorMessage">
+                                            <p id="error">Username or password incorrect.</p>
+                                        </div>
+                                        <label for="inputUsername">Username</label>
+                                        <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                    </div>
+                            
+                            
+                                    <button type="button" class="btn btn-primary float-right" onclick="checkLogin()">Sign in
+                                    </button>
+                            
+                                </form>
+                            
+                                <div class="text-center dropdown-item">
+                                    <hr>
+                                    New here ? <a href="signUp.html"><b>Sign UP NOW!</b></a>
                                 </div>
-                                <label for="inputUsername">Username</label>
-                                <input type="text" class="form-control" id="inputUsername" placeholder="Username">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword">Password</label>
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                            </div>
-
-
-                            <button type="button" class="btn btn-primary float-right" onclick="checkLogin()">Sign in
-                            </button>
-
-                        </form>
-
-                        <div class="text-center dropdown-item">
-                            <hr>
-                            New here ? <a href="signUp.html"><b>Sign UP NOW!</b></a>
                         </div>
-                    </div>
+                            
+                       <div id="loggedinDiv" class="px-4 py-3">
+                                <p id="usernameDisplay"  class="accountName text-center">Name</p>
+                                <div class="dropdown-divider"></div>
 
-                    <div id="loggedinDiv" class="px-4 py-3">
-                        <p id="usernameDisplay">Name</p>
-
-                        <button type="button" class="btn btn-primary float-right" onclick="logout()">Log out</button>
-                    </div>
-
+                                <a class="dropdown-item btn-success  " href="createRecipe.html">Create Your Recipe</a>
+                                
+                                <div class="dropdown-divider"></div>      
+                                <button type="button" class="btn btn-primary float-right" onclick="logout()">Log out</button>
+                        </div>
                 </div>
             </li>
 

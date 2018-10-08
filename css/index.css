@@ -18,6 +18,14 @@ h6 {
     max-width: 1200px;
 }
 
+.content{
+    padding-top: 3%;
+    margin: auto;
+  }
+  .side{
+        padding-top: 3%;
+  }
+  
 .card-deck .card {
     min-width: 220px;
 }
@@ -64,4 +72,12 @@ h6 {
 
 .clickable {
     cursor: pointer;
+}
+
+
+.accountName {
+  color: #2267B5;;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 6px;
 }
