@@ -1,3 +1,5 @@
+var search;
+
 function loadRecipe() {
     getURLParameter(window.location.href);
     var title = getURLParameter('title');
@@ -5,13 +7,17 @@ function loadRecipe() {
     var id = getURLParameter('id');
     var get = getURLParameter('get');
     if (title != null) {
-        getRecipe("title:" + title.toLowerCase());
+        search = "title:" + title.toLowerCase();
+        checkIngredient();
     } else if (nationality != null) {
-        getRecipe("nationality:" + nationality);
+        search = "nationality:" + nationality;
+        checkIngredient();
     } else if (id != null) {
-        getRecipeEveryInfo("id:" + id);
+        search = "id:" + id;
+        getRecipeEveryInfo(search);
     } else if (get == "everything") {
-        getRecipe("get:" + get);
+        search = "get:" + get;
+        checkIngredient();
     } else {
         $("#searchResult").css("display", "none");
         $("#noResultDisplay").css("display", "block");
@@ -75,6 +81,19 @@ function getRecipeEveryInfo(data) {
     });
 }
 
+function checkIngredient(){
+    var checkedValues = $('input:checkbox:checked').map(function() {
+        return this.id;
+    }).get();
+    if (!isEmptyObject(checkedValues)) {
+        var data = search + ":filter" + ":" + checkedValues;
+    } else {
+        data =search;
+    }
+    console.log (data);
+    getRecipe(data);
+}
+
 function generateResult(data) {
     $("#searchResult").css("display", "block");
     $("#noResultDisplay").css("display", "none");
@@ -90,3 +109,16 @@ function generateResult(data) {
         // TO DO display all these onto the actual page
     }
 }
+
+function isEmptyObject( obj ) {
+    for ( var element in obj ) {
+        return false;
+    }
+    return true;
+}
+
+function clearAll(){
+    $('input[type=checkbox]').prop('checked',false);
+}
+
+

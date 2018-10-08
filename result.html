@@ -36,51 +36,55 @@
                 <img class="foodIcon" src="img/milk.png"/>Dairy <img src="img/angle-arrow-down.png" class="right"/>
             </button>
             <div id="demo" class="collapse">
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
+                <span class="check"><input type="checkbox"  id="egg" onclick="checkIngredient(this)">egg</span>
+                <span class="check"><input type="checkbox"  id="cheese" onclick="checkIngredient(this)">cheese</span>
+                <span class="check"><input type="checkbox"  id="milk" onclick="checkIngredient(this)">milk</span>
+                <span class="check"><input type="checkbox"  id="butter" onclick="checkIngredient(this)">butter</span>
             </div>
 
             <button type="button" class="btn btn-success filterBtn" data-toggle="collapse" data-target="#demo1">
                 <img class="foodIcon" src="img/salad.png"/>Vegetables <img src="img/angle-arrow-down.png"
                                                                            class="right"/></button>
             <div id="demo1" class="collapse">
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
+                <span class="check"><input type="checkbox"  id="tomato" onclick="checkIngredient(this)">tomato</span>
+                <span class="check"><input type="checkbox" id="potato" onclick="checkIngredient(this)">potato</span>
+                <span class="check"><input type="checkbox"  id="corn" onclick="checkIngredient(this)">corn</span>
+                <span class="check"><input type="checkbox"  id="carrot" onclick="checkIngredient(this)">carrot</span>
+                <span class="check"><input type="checkbox" id="lettuce" onclick="checkIngredient(this)">lettuce</span>
+                <span class="check"><input type="checkbox"  id="mushroom" onclick="checkIngredient(this)">mushroom</span>
             </div>
 
             <button type="button" class="btn btn-warning filterBtn" data-toggle="collapse" data-target="#demo2">
                 <img class="foodIcon" src="img/apple.png"/>Fruits <img src="img/angle-arrow-down.png" class="right"/>
             </button>
             <div id="demo2" class="collapse">
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
+                <span class="check"><input type="checkbox" id="apple" onclick="checkIngredient(this)">apple</span>
+                <span class="check"><input type="checkbox" id="banana" onclick="checkIngredient(this)">banana</span>
+                <span class="check"><input type="checkbox" id="strawberries" onclick="checkIngredient(this)">
+                    strawberries</span>
+                <span class="check"><input type="checkbox" id="grapes" onclick="checkIngredient(this)">grapes</span>
             </div>
 
             <button type="button" class="btn btn-danger filterBtn" data-toggle="collapse" data-target="#demo3">
                 <img class="foodIcon" src="img/steak.png"/>Meats <img src="img/angle-arrow-down.png" class="right"/>
             </button>
             <div id="demo3" class="collapse">
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
+                <span class="check"><input type="checkbox" id="pork" onclick="checkIngredient(this)">pork</span>
+                <span class="check"><input type="checkbox" id="beef" onclick="checkIngredient(this)">beef</span>
+                <span class="check"><input type="checkbox" id="chicken" onclick="checkIngredient(this)">chicken</span>
+                <span class="check"><input type="checkbox" id="lamb" onclick="checkIngredient(this)">lamb</span>
             </div>
 
             <button type="button" class="btn btn-primary filterBtn" data-toggle="collapse" data-target="#demo4">
                 <img class="foodIcon" src="img/fish.png"/>Seafood <img src="img/angle-arrow-down.png" class="right"/>
             </button>
             <div id="demo4" class="collapse">
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
-                <span class="check"><input type="checkbox" name="food">food</span>
+                <span class="check"><input type="checkbox" id="fish" onclick="checkIngredient(this)">fish</span>
+                <span class="check"><input type="checkbox" id="shrimp" onclick="checkIngredient(this)">shrimp</span>
             </div>
+            <button type="button" class="btn btn-basic" onclick="clearAll()">
+                Clear All
+            </button>
         </div>
 
         <div class="col-sm-9 container">
@@ -278,7 +282,7 @@
                         <div>
                                 <p class= "list-heading">Suggestions:</p>
                                 <ul>
-                                    <li>Make Suer that all words are spelled correctly.</li>
+                                    <li>Make Sure that all words are spelled correctly.</li>
                                     <li>Try Different Keywords.</li>
                                     <li> <b>Or <a href="createRecipe.html"><span class="badge badge-success">Create </span></a> this recipe by yourself.</b></li>
                                 </ul>
