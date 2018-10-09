@@ -157,16 +157,16 @@
                             <tbody id="ingredientList">
                             <tr>
                                 <td>
-                                    <input class="form-control" name="name[]" type="text" id="ingredient1"
+                                    <input class="form-control ingredient" name="name[]" type="text" 
                                            placeholder="Ingredient Name"/>
                                 </td>
                                 <td>
-                                    <input class="form-control" name="amount[]" type="text" id="amount1"
+                                    <input class="form-control amount" name="amount[]" type="text" 
                                         placeholder="Amount"/>
                                 </td>
                                 <td>
                                     <!-- Ingredient Input delete button -->
-                                    <button class="btn btn-danger btn-remove" type="button" onclick="deleteIngredient(this)"><i
+                                    <button class="btn btn-danger btn-remove" type="button" ><i
                                             class="fa fa-minus gs mr-1"></i>Delete
                                     </button>
                                 </td>
@@ -177,7 +177,7 @@
 
 
                         <!-- Ingredient Input add button -->
-                        <button class="btn btn-success btn-add" type="button" onclick="addIngredient()">
+                        <button class="btn btn-success btn-add" type="button" >
                             <i class="fa fa-plus gs"></i> Add
                         </button>
 
