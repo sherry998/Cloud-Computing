@@ -1,8 +1,10 @@
 $(document).ready(function(){
     $("#update").click(function(){
         checkRecipe();
-        // jsonRecipe();
     });
+    // $("#cancel").click(function(){
+    //     cancel();
+    // });
     
 });
 
@@ -42,7 +44,7 @@ function checkRecipe(){
             alert("Ingredient cannot have special characters");
             } 
     });
-    
+
     //Test each amount
     $(".amount").each(function () {
         if (this.value == "" || this.value == null ) {
@@ -53,8 +55,41 @@ function checkRecipe(){
         } 
     }); 
    
-
+    //Test each Step
+    $(".step").each(function () {
+        if (this.value == "" || this.value == null ) {
+            alert("Instruction step cannot be empty");
+        } 
+    }); 
 }
+
+function cancel(){
+    var recipeTitleV = $('#recipeTitle').val();
+    var hourV = $('#hour').val();
+    var mintueV = $('#mintues').val();
+    var costV = $('#cost').val();
+
+    recipeTitleV.removeAttr("value");
+    hourV.removeAttr("value");
+    minuteV.removeAttr("value");
+    costV.removeAttr("value");
+
+    //Remove each ingredient
+    $(".ingredient").each(function () {
+        this.value.removeAttr("value");
+    });
+
+    //Remove each amount
+    $(".amount").each(function () {
+        this.value.removeAttr("value");
+    }); 
+   
+    //Test each Step
+    $(".step").each(function () {
+        this.value.removeAttr("value");
+    }); 
+}
+
 
 function jsonRecipe(){
     var recipeTitleV = $('#recipeTitle').val();
