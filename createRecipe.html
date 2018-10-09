@@ -154,18 +154,19 @@
                             </tr>
                             </thead>
 
-                            <tbody>
+                            <tbody id="ingredientList">
                             <tr>
                                 <td>
-                                    <input class="form-control" name="name[]" type="text"
+                                    <input class="form-control" name="name[]" type="text" id="ingredient1"
                                            placeholder="Ingredient Name"/>
                                 </td>
                                 <td>
-                                    <input class="form-control" name="amount[]" type="text" placeholder="Amount"/>
+                                    <input class="form-control" name="amount[]" type="text" id="amount1"
+                                        placeholder="Amount"/>
                                 </td>
                                 <td>
                                     <!-- Ingredient Input delete button -->
-                                    <button class="btn btn-danger btn-remove" type="button"><i
+                                    <button class="btn btn-danger btn-remove" type="button" onclick="deleteIngredient(this)"><i
                                             class="fa fa-minus gs mr-1"></i>Delete
                                     </button>
                                 </td>
@@ -176,7 +177,7 @@
 
 
                         <!-- Ingredient Input add button -->
-                        <button class="btn btn-success btn-add" type="button">
+                        <button class="btn btn-success btn-add" type="button" onclick="addIngredient()">
                             <i class="fa fa-plus gs"></i> Add
                         </button>
 
@@ -261,7 +262,7 @@
 
 <script type="text/javascript" src="js/loadHTML.js"></script>
 <script type="text/javascript" src="js/addRecipe.js"></script>
-
+<script type="text/javascript" src="js/createRecipe.js"></script>
 
 </body>
 </html>
