@@ -25,6 +25,10 @@
         delete($_POST['callDelete']);
     }
 
+    if (isset($_POST['callAddRating'])) {
+        addRating($_POST['callAddRating']);
+    }
+
     function addFilter($filterArray){
 		include 'connect.php';
         $whereStatement = "";
@@ -102,7 +106,13 @@
     		'arguments' => array( $id )
     	)));
 
-    	getEveryThing($resultRecipe,$resultIngredient,$resultStep);
+        $statementRating = $session->prepare('SELECT * FROM rating WHERE recipeid = ?');
+
+    	$resultRating = $session->execute($statementRating, new Cassandra\ExecutionOptions(array(
+    		'arguments' => array( $id )
+    	)));
+
+    	getEveryThing($resultRecipe,$resultIngredient,$resultStep,$resultRating);
     }
 	
 	function getResult($result,$filterArray){
@@ -137,12 +147,17 @@
 		}
 	}
 
-	function getEveryThing($resultRecipe,$resultIngredient,$resultStep){
+	function getEveryThing($resultRecipe,$resultIngredient,$resultStep,$statementRating){
         $json;
         $user= null;
         session_start();
         if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
             $user = $_SESSION['username'];
+        }
+        $rating = 0;
+        if ($statementRating->count()==1){
+            $row = $statementRating->first();
+            $rating = $row['rating']->value();
         }
 
         if ($resultRecipe->count()==1){
@@ -157,7 +172,7 @@
             $json["hour"] = $row['hour'];
 			$json["minute"] = $row['minute'];
             $json["username"] = $row['username'];
-            $json["rating"] = $row['rating'];
+            $json["rating"] = $rating;
 			 $json["owner"] = false;
 
             if ($row['username'] == $user){
@@ -207,8 +222,16 @@
         $session->execute($statementIngredient, new Cassandra\ExecutionOptions(array(
             'arguments' => array($id)
         )));
+    }
 
+    function addRating($id){
+        include 'connect.php';
+        $id =  new Cassandra\Uuid($id);
+        $statement = $session->prepare('UPDATE rating SET rating = rating + 1 WHERE recipeid = ?');
 
+        $session->execute($statement, new Cassandra\ExecutionOptions(array(
+            'arguments' => array($id)
+        )));
     }
 	
 ?>

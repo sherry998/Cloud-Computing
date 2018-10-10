@@ -134,7 +134,8 @@ function generateResult(data) {
 
             // recipe image & nationality 
             '<div class=" resultImg mb-2">' +
-                '<a href="recipe.html" id="link"><img id="result-image" class="summaryImg rounded img-fluid" src="img/bg.jpg"></a>' +
+                '<a href="recipe.html" id="link"><img id="result-image" class="summaryImg rounded img-fluid" ' +
+            'src="img/bg.jpg" width=""></a>' +
                 '<div class="bottom-right rounded">' + 
                     '<small id="result-nationality">Food Type</small>' + 
                 '</div>' + 
@@ -152,8 +153,8 @@ function generateResult(data) {
             // recipe tags, including time cost(hour:minute) & money cost($) & difficulty level
             // as well as the rating number(how many user vote it)
             '<div class="tag">' + 
-                '<span id="result-time-cost" class="badge badge-secondary">Time cost</span>' + 
-                '<span id="result-money-cost" class="badge badge-secondary">cost</span>' + 
+                '<span id="result-time-cost" class="badge badge-secondary" style="margin-right: 5px">Time cost</span>' +
+                '<span id="result-money-cost" class="badge badge-secondary" style="margin-right: 5px">cost</span>' +
                 '<span id="result-difficulty-level" class="badge badge-secondary">Level</span>' + 
                 '<div class="pull-right">' + 
                     '<span id="result-rating" class="badge badge-success "> <span id="rating">99</span>' +

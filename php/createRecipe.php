@@ -29,13 +29,12 @@
 	
 		$username = $_SESSION['username'];
 		if ($image!=false){
-			$statement = $session->prepare('INSERT INTO recipe (recipeid,name, cost, date, image, hour,minute, nationality,username,diffculty,rating) values (
-				?,?,?,?,?,?,?,?,?,?,0)');
+			$statement = $session->prepare('INSERT INTO recipe (recipeid,name, cost, date, image, hour,minute, nationality,username,diffculty) values (
+				?,?,?,?,?,?,?,?,?,?)');
 
 			$result = $session->execute($statement, array(
 				'arguments' => array($uuid,$title,$cost,$date,$image,$hour,$minute,$type,$username,$level)
 			));
-
 			
 			for ($i = 1; $i <= $num; $i++) {
 				$ingredient = $_POST['ingredient'.$i];
