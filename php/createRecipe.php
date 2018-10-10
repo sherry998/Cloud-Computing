@@ -12,7 +12,7 @@
 
 	function createRecipe($num,$steps){
 		include 'connect.php';
-		$title= $_POST['title'];
+		$title= strtolower($_POST['title']);
 		$type = $_POST['type'];
 		$hour = (int)$_POST['hour'];
 		$minute = (int)$_POST['minute'];

@@ -85,9 +85,11 @@ function duplicate() {
     $('#' + clone.id).children(".form-group").children("textarea").css("borderColor", "#cccccc");
     $('#' + clone.id).children(".form-group").children("textarea").attr("name", "content" + num);
     $('#' + clone.id).children(".form-inline").children("label").attr("for", "image-upload" + num );
+    $('#' + clone.id).children(".form-inline").children(":file").attr("id", "image-upload" + num);
     $('#' + clone.id).children(".form-inline").children(":file").attr("name", "image-upload" + num);
     $('#' + clone.id).children(".form-inline").children(":file").attr("class", "upload");
     $('#' + clone.id).children(".form-inline").children("label").text('Add Step image');
+
     $('#' + clone.id).children(".imagePreview").attr("id", "preview" + num);
     $('#' + clone.id).children(".imagePreview").empty();
     $('#' + clone.id).children(".originalreview").empty();
