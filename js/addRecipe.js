@@ -16,14 +16,19 @@ $(document).ready(function () {
 
     $(document).on('click', '.btn-add', function (e) {
         e.preventDefault();
-
+        var rowCount = $('table >tbody:last >tr').length+1;
         var controlForm = $('table');
         var currentEntry = $('table>tbody>tr:last');
         var newEntry = $(currentEntry.clone()).appendTo(controlForm);
-        newEntry.find('input').val('');                                         //Remove the Data - as it is cloned from the above
+        newEntry.find('.name').attr('name','ingredient'+rowCount);
+        newEntry.find('.amount').attr('name','amount'+rowCount);
 
-        //Add the button  
-        var rowCount = $('table >tbody:last >tr').length;
+        //Remove the Data - as it is cloned from the above
+        newEntry.find('input').val('');
+
+
+        //Add the button  attr
+        rowCount = $('table >tbody:last >tr').length;
         if (rowCount > 1) {
             var removeButtons = document.getElementsByClassName('btn-remove');
             for (var i = 0; i < removeButtons.length; i++) {
@@ -39,6 +44,14 @@ $(document).ready(function () {
         if (rowCount == 1) {
             document.getElementsByClassName('btn-remove')[0].disabled = true;
         }
+
+        // update the id again
+        $('table tr').each(function (i, row) {
+            var $row = $(row);
+            $row.find('.name').attr('id','ingredient'+i);
+            $row.find('.amount').attr('id','amount'+i);
+        });
+
 
         e.preventDefault();
         return false;
@@ -71,12 +84,15 @@ function duplicate() {
     $('#' + clone.id).children(".form-group").children("textarea").val("");
     $('#' + clone.id).children(".form-group").children("textarea").css("borderColor", "#cccccc");
     $('#' + clone.id).children(".form-group").children("textarea").attr("name", "content" + num);
-    $('#' + clone.id).children(".form-inline").children(":file").attr("name", "image-upload" + num + "[]");
-    $('#' + clone.id).children(".form-inline").children(":file").attr("id", "image-upload" + num);
-    $('#' + clone.id).children(".form-inline").children("label").attr("for", "image-upload" + num);
+    $('#' + clone.id).children(".form-inline").children("label").attr("for", "image-upload" + num );
+    $('#' + clone.id).children(".form-inline").children(":file").attr("name", "image-upload" + num);
+    $('#' + clone.id).children(".form-inline").children(":file").attr("class", "upload");
+    $('#' + clone.id).children(".form-inline").children("label").text('Add Step image');
     $('#' + clone.id).children(".imagePreview").attr("id", "preview" + num);
     $('#' + clone.id).children(".imagePreview").empty();
     $('#' + clone.id).children(".originalreview").empty();
+    $('#image-upload' + num).val('');
+
 }
 
 //https://stackoverflow.com/questions/15420558/jquery-click-event-not-working-after-append-method

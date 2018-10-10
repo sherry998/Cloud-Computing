@@ -113,12 +113,13 @@
 						$json[$count] = array (
 							"id" => $row['recipeid']->__toString(),
 							"title" => $row['name'],
-							"cost" => $row['cost']->value(),
+							"cost" => $row['cost'],
 							"date" => $row['date']->toDateTime (),
 							"diffculty" => $row['diffculty'],
 							"image" => $row['image'],
 							"nationality" => $row['nationality'],
-							"time" => $row['time']->value(),
+							"minute" => $row['minute'],
+							"hour" => $row['hour'],
 							"username" => $row['username'],
 							"rating" => $row['rating'],
 						);
@@ -137,14 +138,16 @@
         if ($resultRecipe->count()==1){
             $row = $resultRecipe->first();
             $json["title"] = $row['name'];
-            $json["cost"] = $row['cost']->value();
+            $json["cost"] = $row['cost'];
             $json["date"] = $row['date']->toDateTime ();
             $json["diffculty"] = $row['diffculty'];
             $json["image"] = $row['image'];
             $json["nationality"] = $row['nationality'];
-            $json["time"] = $row['time']->value();
+            $json["hour"] = $row['hour'];
+			$json["minute"] = $row['minute'];
             $json["username"] = $row['username'];
             $json["rating"] = $row['rating'];
+			
 
             $ingredientCount =1;
             foreach ($resultIngredient as $rowIngredient) {

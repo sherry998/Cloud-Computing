@@ -37,7 +37,7 @@
             <h2><b>Create New Recipe</b></h2>
             <hr>
             <!-- Recipe input form start here-->
-            <form action="#" method="post" id="">
+            <form action="php/createRecipe.php" method="post" id="editForm" enctype='multipart/form-data' >
 
                 <!-- Recipe title input here-->
                 <div class="form-group">
@@ -85,13 +85,14 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="Hours" type="number" id="hour">
+                                    <input class="form-control" placeholder="Hours" type="number" id="hour" name="hour">
                                 </div>
                                 <div class="input-group col-sm-6">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="Mintues" type="number" id="mintues">
+                                    <input class="form-control" placeholder="Mintues" type="number" id="mintues"
+                                    name="minute">
                                 </div>
                             </div>
                         </div>
@@ -108,7 +109,7 @@
                                     <span class="input-group-text"><i class="fa fa-bolt"></i></span>
                                 </div>
 
-                                <select class="custom-select" id="recipeLevel" name="type">
+                                <select class="custom-select" id="recipeLevel" name="level">
                                     <option value="ve">Very Easy</option>
                                     <option value="e">Easy</option>
                                     <option value="m">Middle</option>
@@ -138,7 +139,7 @@
                     <label for="main-upload" class="btn btn-primary col-md-auto">
                         Add featured image
                     </label>
-                    <input id="main-upload" name="main-upload" type="file" style="display:none;"
+                    <input id="main-upload" name="main-upload" type="file" class="upload" style="display:none;"
                            accept="image/x-png,image/gif,image/jpeg"/>
 
                     <hr>
@@ -157,11 +158,11 @@
                             <tbody id="ingredientList">
                             <tr>
                                 <td>
-                                    <input class="form-control" name="name[]" type="text" id="ingredient1"
+                                    <input class="form-control name"  name="ingredient1" type="text" id="ingredient1"
                                            placeholder="Ingredient Name"/>
                                 </td>
                                 <td>
-                                    <input class="form-control" name="amount[]" type="text" id="amount1"
+                                    <input class="form-control amount"  name="amount1" type="text" id="amount1"
                                         placeholder="Amount"/>
                                 </td>
                                 <td>
@@ -177,7 +178,7 @@
 
 
                         <!-- Ingredient Input add button -->
-                        <button class="btn btn-success btn-add" type="button" onclick="addIngredient()">
+                        <button class="btn btn-success btn-add" type="button">
                             <i class="fa fa-plus gs"></i> Add
                         </button>
 
@@ -198,7 +199,7 @@
                                        style="margin-left: 2%;">
                                     Add Step image
                                 </label>
-                                <input id="image-upload" name="image-upload1" type="file" style="display:none;"
+                                <input id="image-upload" name="image-upload1" type="file" class="upload" style="display:none;"
                                        accept="image/x-png,image/gif,image/jpeg" multiple/>
 
                             </div>

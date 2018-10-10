@@ -6,6 +6,7 @@ function loadRecipe() {
     var nationality = getURLParameter('nationality');
     var id = getURLParameter('id');
     var get = getURLParameter('get');
+    console.log(id);
     if (title != null) {
         search = "title:" + title.toLowerCase();
         checkIngredient();
@@ -13,6 +14,7 @@ function loadRecipe() {
         search = "nationality:" + nationality;
         checkIngredient();
     } else if (id != null) {
+        console.log(id);
         search = "id:" + id;
         getRecipeEveryInfo(search);
     } else if (get == "everything") {
