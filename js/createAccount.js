@@ -61,7 +61,6 @@ function checkLogin() {
             success: function (data) {
                 console.log(data);
                 if (data == "success") {
-                    // to be changed
                     window.location.href = 'index.html';
                 } else {
                     $("#error").text("Username or password incorrect.");

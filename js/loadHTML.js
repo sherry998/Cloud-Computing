@@ -8,6 +8,11 @@ $(document).ready(function () {
             $("#footer").load("footer.html");
             getCurrentSession();
         }
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+
     });
 
 
@@ -62,7 +67,7 @@ function checkLogin() {
             success: function (data) {
                 console.log(data);
                 if (data == "success") {
-                    getCurrentSession();
+                    location.reload();
                 } else {
                     $("#error").text("Username or password incorrect.");
                     $(".errorMessage").css("display", "block");
@@ -88,6 +93,7 @@ function logout() {
             window.location.href = 'index.html';
             $("#signinDiv").css("display", "block");
             username = null;
+            location.reload();
         },
         error: function (data) {
             console.log("error");
@@ -103,8 +109,13 @@ function checkLogged() {
     }
 }
 
-function search() {
-    var keyword = $("#searchBar").val();
+function searchWord(val) {
+    var keyword;
+    if (val == true) {
+        keyword = $("#searchBar").val();
+    } else {
+        keyword = $("#mainSearch").val();
+    }
     window.location.href = "result.html?title=" + keyword;
 }
 

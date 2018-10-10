@@ -21,6 +21,10 @@
         }
     }
 
+    if (isset($_POST['callDelete'])) {
+        delete($_POST['callDelete']);
+    }
+
     function addFilter($filterArray){
 		include 'connect.php';
         $whereStatement = "";
@@ -135,8 +139,15 @@
 
 	function getEveryThing($resultRecipe,$resultIngredient,$resultStep){
         $json;
+        $user= null;
+        session_start();
+        if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+            $user = $_SESSION['username'];
+        }
+
         if ($resultRecipe->count()==1){
             $row = $resultRecipe->first();
+            $json["id"] = $row['recipeid'];
             $json["title"] = $row['name'];
             $json["cost"] = $row['cost'];
             $json["date"] = $row['date']->toDateTime ();
@@ -147,7 +158,11 @@
 			$json["minute"] = $row['minute'];
             $json["username"] = $row['username'];
             $json["rating"] = $row['rating'];
-			
+			 $json["owner"] = false;
+
+            if ($row['username'] == $user){
+                $json["owner"] = true;
+            }
 
             $ingredientCount =1;
             foreach ($resultIngredient as $rowIngredient) {
@@ -170,6 +185,30 @@
         } else{
             echo json_encode("");
         }
+    }
+
+    function delete($id){
+        include 'connect.php';
+        $id =  new Cassandra\Uuid($id);
+        $statement = $session->prepare('DELETE FROM recipe WHERE recipeid = ?');
+
+        $session->execute($statement, new Cassandra\ExecutionOptions(array(
+            'arguments' => array($id)
+        )));
+
+        $statementStep = $session->prepare('DELETE FROM steps WHERE recipeid = ?');
+
+        $session->execute($statementStep, new Cassandra\ExecutionOptions(array(
+             'arguments' => array($id)
+        )));
+
+         $statementIngredient = $session->prepare('DELETE FROM ingredientused WHERE recipeid = ?');
+
+        $session->execute($statementIngredient, new Cassandra\ExecutionOptions(array(
+            'arguments' => array($id)
+        )));
+
+
     }
 	
 ?>

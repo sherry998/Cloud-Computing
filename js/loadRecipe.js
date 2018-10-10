@@ -1,11 +1,12 @@
 var search;
 var stepCount;
+var id;
 
 function loadRecipe() {
     getURLParameter(window.location.href);
     var title = getURLParameter('title');
     var nationality = getURLParameter('nationality');
-    var id = getURLParameter('id');
+    id = getURLParameter('id');
     var get = getURLParameter('get');
     console.log(id);
     if (title != null) {
@@ -74,9 +75,11 @@ function getRecipeEveryInfo(data) {
                 document.getElementById("difficultyL").innerHTML= data.diffculty;
                 document.getElementById("region").innerHTML= data.nationality;
                 document.getElementById("duration").innerHTML=data.hour + " hours " + data.minute + " mins ";
-                document.getElementById("createDate").innerHTML= data.date.date;
+                document.getElementById("createDate").innerHTML= data.date.date.toString().split(" ")[0];
 
-
+                if (String(data.owner) == 'true'){
+                    $("#delete").css("visibility", "visible");
+                }
             } else {
                 console.log("no data matched");
                 $("#recipleInfo").css("display", "none");
@@ -131,7 +134,7 @@ function generateResult(data) {
 
             // recipe image & nationality 
             '<div class=" resultImg mb-2">' +
-                '<a href="recipe.html"><img id="result-image" class="summaryImg rounded img-fluid" src="img/bg.jpg"></a>' + 
+                '<a href="recipe.html" id="link"><img id="result-image" class="summaryImg rounded img-fluid" src="img/bg.jpg"></a>' +
                 '<div class="bottom-right rounded">' + 
                     '<small id="result-nationality">Food Type</small>' + 
                 '</div>' + 
@@ -139,7 +142,8 @@ function generateResult(data) {
 
             // recipe title & publish date
             '<div class="row">' + 
-                '<h6 id="result-title" class="col"><a class="text-dark" href="recipe.html">Recipe Name</a></h6>' + 
+                '<h6 id="result-title" class="col"><a class="text-dark">' +
+            'Recipe Name</a></h6>' +
                 '<h6 class="col text-muted text-right">' + 
                     '<small id="result-date">2018-09-21</small>' + 
                 '</h6>' + 
@@ -152,7 +156,8 @@ function generateResult(data) {
                 '<span id="result-money-cost" class="badge badge-secondary">cost</span>' + 
                 '<span id="result-difficulty-level" class="badge badge-secondary">Level</span>' + 
                 '<div class="pull-right">' + 
-                    '<span id="result-rating" class="badge badge-success "> 99 <i class="fa fa-thumbs-up ml-1"></i> </span>' + 
+                    '<span id="result-rating" class="badge badge-success "> <span id="rating">99</span>' +
+            ' <i class="fa fa-thumbs-up ml-1"></i> </span>' +
                 '</div>' + 
                 '<hr class="mb-3">' + 
             '</div>' + 
@@ -168,7 +173,11 @@ function generateResult(data) {
         // get the real image
         var imageId = "result-image" + count;
         document.getElementById("result-image").id = imageId;
-        document.getElementById(imageId).innerHTML = data[result].image;
+        document.getElementById(imageId).src  = data[result].image;
+
+        var linkId = "link" + count;
+        document.getElementById("link").id = linkId;
+        document.getElementById(linkId).href = "recipe.html?id=" + data[result].id;
 
         // get the real nationality
         var nationalityId = "result-nationality" + count;
@@ -202,8 +211,10 @@ function generateResult(data) {
 
         // get the real rating
         var ratingId = "result-rating" + count;
+        var ratingtextId = "result-rating-text" + count;
         document.getElementById("result-rating").id = ratingId;
-        document.getElementById(ratingId).innerHTML = data[result].rating;
+        document.getElementById("rating").id = ratingtextId;
+        document.getElementById(ratingtextId).innerHTML = data[result].rating;
 
         count++;
     }
@@ -219,5 +230,26 @@ function isEmptyObject( obj ) {
 function clearAll(){
     $('input[type=checkbox]').prop('checked',false);
 }
+
+function deleteRecipe(){
+    console.log(id);
+    if(confirm("Are you sure you want to delete this recipe?")){
+        $.ajax({
+            url: 'php/retrieveRecipeInfo.php',
+            type: 'post',
+            data: {"callDelete": id},
+            success: function (data) {
+                console.log(data);
+                window.location.href = 'index.html';
+            },
+            error: function (data) {
+                console.log("error");
+                console.log(data);
+            }
+        });
+    }
+}
+
+
 
 
