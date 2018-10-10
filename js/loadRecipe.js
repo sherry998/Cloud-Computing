@@ -109,16 +109,103 @@ function checkIngredient(){
 function generateResult(data) {
     $("#searchResult").css("display", "block");
     $("#noResultDisplay").css("display", "none");
+    var count = 1; // a variable to count the result number 
+
     // loop through each recipe from the json
     for (result in data) {
-        // get title, date etc. for each recipe
-        console.log(data[result].title);
-        console.log(data[result].date);
-        console.log(data[result].diffculty);
         console.log(data[result].image);
-        console.log(data[result].time);
+        console.log(data[result].nationality);
+        console.log(data[result].title);
+        console.log(data[result].date.date.toString().split(" ")[0]);
+        console.log(data[result].hour);
+        console.log(data[result].minute);
+        console.log(data[result].cost);
+        console.log(data[result].diffculty);
         console.log(data[result].rating);
-        // TO DO display all these onto the actual page
+
+        // append a new result
+        var newResult = 
+
+        // whole result container
+        '<div class="col-sm-4">' + 
+
+            // recipe image & nationality 
+            '<div class=" resultImg mb-2">' +
+                '<a href="recipe.html"><img id="result-image" class="summaryImg rounded img-fluid" src="img/bg.jpg"></a>' + 
+                '<div class="bottom-right rounded">' + 
+                    '<small id="result-nationality">Food Type</small>' + 
+                '</div>' + 
+            '</div>' + 
+
+            // recipe title & publish date
+            '<div class="row">' + 
+                '<h6 id="result-title" class="col"><a class="text-dark" href="recipe.html">Recipe Name</a></h6>' + 
+                '<h6 class="col text-muted text-right">' + 
+                    '<small id="result-date">2018-09-21</small>' + 
+                '</h6>' + 
+            '</div>' + 
+
+            // recipe tags, including time cost(hour:minute) & money cost($) & difficulty level
+            // as well as the rating number(how many user vote it)
+            '<div class="tag">' + 
+                '<span id="result-time-cost" class="badge badge-secondary">Time cost</span>' + 
+                '<span id="result-money-cost" class="badge badge-secondary">cost</span>' + 
+                '<span id="result-difficulty-level" class="badge badge-secondary">Level</span>' + 
+                '<div class="pull-right">' + 
+                    '<span id="result-rating" class="badge badge-success "> 99 <i class="fa fa-thumbs-up ml-1"></i> </span>' + 
+                '</div>' + 
+                '<hr class="mb-3">' + 
+            '</div>' + 
+        '</div>';
+
+        // every row contains 3 results, create a new row if count % 3 == 1
+        if (count%3 == 1) {
+            $("#searchResult").append('<div class="row mb-2">' + '</div>');
+        }
+        $(".row.mb-2").append(newResult);
+
+        // get real data for every result
+        // get the real image
+        var imageId = "result-image" + count;
+        document.getElementById("result-image").id = imageId;
+        document.getElementById(imageId).innerHTML = data[result].image;
+
+        // get the real nationality
+        var nationalityId = "result-nationality" + count;
+        document.getElementById("result-nationality").id = nationalityId;
+        document.getElementById(nationalityId).innerHTML = data[result].nationality;
+
+        // get the real title
+        var titleId = "result-title" + count;
+        document.getElementById("result-title").id = titleId;
+        document.getElementById(titleId).innerHTML = data[result].title;
+
+        // get the real date
+        var dateId = "result-date" + count;
+        document.getElementById("result-date").id = dateId;
+        document.getElementById(dateId).innerHTML = data[result].date.date.toString().split(" ")[0];
+
+        // get the real time cost
+        var timeCostId = "result-time-cost" + count;
+        document.getElementById("result-time-cost").id = timeCostId;
+        document.getElementById(timeCostId).innerHTML = data[result].hour + "h" +  data[result].minute + "m";
+
+        // get the real money cost
+        var moneyCostId = "result-money-cost" + count;
+        document.getElementById("result-money-cost").id = moneyCostId;
+        document.getElementById(moneyCostId).innerHTML = "$" + data[result].cost;
+
+        // get the real difficulty level
+        var difficultyLevelId = "result-difficulty-level" + count;
+        document.getElementById("result-difficulty-level").id = difficultyLevelId;
+        document.getElementById(difficultyLevelId).innerHTML = data[result].diffculty;
+
+        // get the real rating
+        var ratingId = "result-rating" + count;
+        document.getElementById("result-rating").id = ratingId;
+        document.getElementById(ratingId).innerHTML = data[result].rating;
+
+        count++;
     }
 }
 
