@@ -1,4 +1,5 @@
 var search;
+var stepCount;
 
 function loadRecipe() {
     getURLParameter(window.location.href);
@@ -67,11 +68,20 @@ function getRecipeEveryInfo(data) {
                 // data is the json returned back from the search result
                 $("#recipleInfo").css("display", "block");
                 $("#noInfo").css("display", "none");
+                document.getElementById("recipeTitle").innerHTML= data.title;
+                document.getElementById("recipeImage").src=data.image;     
+                document.getElementById("moneyCost").innerHTML= data.cost;
+                document.getElementById("difficultyL").innerHTML= data.diffculty;
+                document.getElementById("region").innerHTML= data.nationality;
+                document.getElementById("duration").innerHTML=data.hour + " hours " + data.minute + " mins ";
+                document.getElementById("createDate").innerHTML= data.date.date;
+
 
             } else {
                 console.log("no data matched");
                 $("#recipleInfo").css("display", "none");
                 $("#noInfo").css("display", "block");
+
             }
         },
         error: function (data) {

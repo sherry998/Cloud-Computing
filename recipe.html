@@ -21,34 +21,65 @@
 <div id="header"></div>
 <!--menu-->
 
-<div class="container" style="width:50%; margin-top:20px;">
+<div class="container" >
 
-    <div id="recipleInfo">
+    <div id="recipleInfo" style="width:50%; padding-top:20px; margin: auto;">
         <!--Always have heading before the row-->
-        <h2>Recipe Name</h2>
+      
+                <h2 id="recipeTitle"> </h2>
 
+    
+       
+      
         <!--carousel-->
 
         <div class="row">
 
             <div class="col-sm-12">
-                <img class="d-block w-100" src="img/myR1.jpg" alt="First slide">
+                <img id="recipeImage" class="d-block w-100" src="img/myR1.jpg" alt="First slide">
             </div>
         </div>
         <!--/carousel-->
 
         <!--Time, Cost, Difficulty Badges-->
-        <div class="row">
+        <div class="row recipeInfo">
             <!--This has 2 columns and the time cost difficulty is the major factor so 10 width, i couldve done 6 and 6 but more stuff to write on inline css-->
             <div class="col-sm-10">
-                <span class="badge badge-secondary">0:20 prep</span>
-                <span class="badge badge-secondary">1:20 cook</span>
-                <span class="badge badge-secondary">Difficulty</span>
+                <span class="badge badge-secondary"> 
+                    <i  class=" fa fa-clock-o"> 
+                        <b id="duration"> </b>    
+                    </i>
+                </span>
+
+                <span class="badge badge-secondary">
+                    <i  class="fa fa-dollar">
+                        <b id="moneyCost" > </b> 
+                    </i> 
+                </span>
+
+                <span class="badge badge-secondary">
+                    <i class=" fa fa-cutlery">
+                            <b id="difficultyL" > </b>
+                    </i> 
+                </span>
+               
+                <span  class="badge badge-secondary"> 
+                        <i class="fa fa-globe">
+                                <b  id="region"></b>
+                        </i>
+                </span>
+
+                <span class="badge badge-success "> 
+                     <i class="fa fa-thumbs-up ml-1"></i> 
+                </span>
+               
+            
+                
 
             </div>
             <!--This is second column and so 2 width. 10+2=12 so 12 width all together-->
             <div class="col-sm-2" style="text-align:right;">
-                <span style="font-size:12px;">DD-MM-YYY</span>
+                <span id="createDate" style="font-size:12px;">DD-MM-YYY</span>
             </div>
         </div>
         <!--/Time, Cost, Difficulty Badges-->
@@ -117,12 +148,15 @@
 
         </div>
     </div>
-    <div id="noInfo">
+    <div id="noInfo" style="width:50%; padding-top:20px; margin: auto;">
         <p>The recipe you are looking for doesn't exists :(</p>
     </div>
     <!--Footer-->
     <div id="footer"></div>
+    
 </div>
+
+
 
 
 <!-- Bootstrap core JavaScript
