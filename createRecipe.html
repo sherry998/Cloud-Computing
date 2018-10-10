@@ -158,18 +158,22 @@
                             <tbody id="ingredientList">
                             <tr>
                                 <td>
+
                                     <input class="form-control name"  name="ingredient1" type="text" id="ingredient1"
                                            placeholder="Ingredient Name"/>
                                 </td>
                                 <td>
                                     <input class="form-control amount"  name="amount1" type="text" id="amount1"
-                                        placeholder="Amount"/>
+
+                        <input class="form-control ingredient" name="name[]" type="text"
+                                           placeholder="Ingredient Name"/>
                                 </td>
                                 <td>
                                     <!-- Ingredient Input delete button -->
                                     <button class="btn btn-danger btn-remove" type="button" onclick="deleteIngredient(this)"><i
                                             class="fa fa-minus gs mr-1"></i>Delete
                                     </button>
+
                                 </td>
                             </tr>
                             </tbody>
@@ -178,7 +182,8 @@
 
 
                         <!-- Ingredient Input add button -->
-                        <button class="btn btn-success btn-add" type="button">
+
+                        <button class="btn btn-success btn-add" type="button" >
                             <i class="fa fa-plus gs"></i> Add
                         </button>
 
@@ -206,7 +211,7 @@
                             <br>
                             <div class="form-group">
                                 <textarea name="content1" cols="88" rows="8"
-                                          placeholder="Write Your step Detail here..." class="form-control"></textarea>
+                                          placeholder="Write Your step Detail here..." class="form-control step"></textarea>
                             </div>
                             <div id="preview1" class="imagePreview form-group">
 
