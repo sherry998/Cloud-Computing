@@ -1,6 +1,8 @@
 var search;
-var stepCount;
 var id;
+var step = document.getElementById("stepsContainter");
+var originalStep;
+var stepCount;
 
 function loadRecipe() {
     getURLParameter(window.location.href);
@@ -73,9 +75,27 @@ function getRecipeEveryInfo(data) {
                 document.getElementById("recipeImage").src=data.image;     
                 document.getElementById("moneyCost").innerHTML= data.cost;
                 document.getElementById("difficultyL").innerHTML= data.diffculty;
+                document.getElementById("overallRating").innerHTML= data.rating;
                 document.getElementById("region").innerHTML= data.nationality;
                 document.getElementById("duration").innerHTML=data.hour + " hours " + data.minute + " mins ";
                 document.getElementById("createDate").innerHTML= data.date.date.toString().split(" ")[0];
+
+                for(stepCount in data.step) {
+                    originalStep = document.getElementById("step0");
+                    var clone = originalStep.cloneNode(true);
+                    clone.id = "step" + stepCount;
+                    step.appendChild(clone);
+                    clone.style.display = "block";
+                
+                    $("#step"+stepCount).children(".stepNum").text("Step " + stepCount);
+                    $("#step"+stepCount).children("p").text(data.step[stepCount].content);
+                
+                    var stepImageId ="stepImg" + stepCount;
+                    document.getElementById("stepImg").id = stepImageId;
+                    document.getElementById(stepImageId).src = data.step[stepCount].image;
+                            
+                }
+                
 
                 if (String(data.owner) == 'true'){
                     $("#delete").css("visibility", "visible");

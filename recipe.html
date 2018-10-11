@@ -71,7 +71,9 @@
                 </span>
 
                 <span class="badge badge-success "> 
-                     <i class="fa fa-thumbs-up ml-1"></i> 
+                     <i class="fa fa-thumbs-up ml-1" >
+                         <b id="overallRating"></b>
+                     </i> 
                 </span>
                
             
@@ -120,31 +122,18 @@
 
         <h3 style="padding-bottom:5px;">Steps</h3>
         <div class="row recipe-method-container" style="padding-bottom:2%;">
-            <ul class="recipe-method-step-content">
-                <li class="row stepsContainter">
-                    <div class="col-sm-1recipe-method-step-number">
-                        <p>Step 1</p>
-                    </div>
-                    <div class="col-sm-5 recipe-method-content">
-            <span>Lorem ipsum dolor sit amet, has exerci latine facilisi ei, pri ne etiam movet mucius. Eros bonorum consulatu id sea, ei decore audire
-    				neglegentur vis, his omnium scripserit ne. Nam nominavi praesent cu, ne duis lucilius comprehensam vix. Dicta platonem omittantur ad nec.</span>
-                    </div>
-                    <div class=" col-sm-6 recipe-method-image">
-                        <img src="img/Italy.jpg" alt="Step 1">
+            <ul id="stepsContainter" class="recipe-method-step-content">
+                <li id="step0" class="row mb-2" style="display:none;">
+                    <h6 class=" stepNum col-sm-1recipe-method-step-number"> </h6>
+                     <p class="stepDescription col-sm-5 recipe-method-content">
+                         
+                    </p>
+                        
+                    <div class="col-sm-6 recipe-method-image">
+                            <img id ="stepImg" src="" alt="Step Image">
                     </div>
                 </li>
-                <li class="row stepsContainter">
-                    <div class="col-sm-1recipe-method-step-number">
-                        <p>Step 2</p>
-                    </div>
-                    <div class="col-sm-5 recipe-method-content">
-            <span>Lorem ipsum dolor sit amet, has exerci latine facilisi ei, pri ne etiam movet mucius. Eros bonorum consulatu id sea, ei decore audire
-    				neglegentur vis, his omnium scripserit ne.
-                    </div>
-                    <div class=" col-sm-6 recipe-method-image">
-                        <img src="img/Italy.jpg" alt="Step 1">
-                    </div>
-                </li>
+
             </ul>
 
         </div>
