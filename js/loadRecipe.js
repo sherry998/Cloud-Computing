@@ -306,7 +306,11 @@ function likeRecipe(this){
             data: {"callAddRating": id},
             success: function (data) {
                 console.log(data);
-                window.location.href = 'index.html';
+                var $voteCount = $thisButton.parent();
+                console.log($voteCount.text());
+                var $value = Number($voteCount.text()) + 1;
+                $voteCount.text($value);
+                console.log($voteCount.text());
             },
             error: function (data) {
                 console.log("error");
