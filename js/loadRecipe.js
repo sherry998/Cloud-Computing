@@ -3,6 +3,10 @@ var id;
 var step = document.getElementById("stepsContainter");
 var originalStep;
 var stepCount;
+var ingredient = document.getElementById("ingreContent");
+var originalInfo;
+var ingredientCount;
+
 
 function loadRecipe() {
     getURLParameter(window.location.href);
@@ -80,12 +84,27 @@ function getRecipeEveryInfo(data) {
                 document.getElementById("duration").innerHTML=data.hour + " hours " + data.minute + " mins ";
                 document.getElementById("createDate").innerHTML= data.date.date.toString().split(" ")[0];
 
+                for(ingredientCount in data.ingredient) {
+                    originalInfo = document.getElementById("info0");
+                    var clone = originalInfo.cloneNode(true);
+                    clone.id = "info" + ingredientCount;
+                    ingredient.appendChild(clone);
+                    clone.style.display = "";
+                  
+                
+                    $("#info"+ingredientCount).children("th").text(ingredientCount);
+                    $("#info"+ingredientCount).children(".ingredientName").html(data.ingredient[ingredientCount].name);
+                    $("#info"+ingredientCount).children(".ingredientAmount").html(data.ingredient[ingredientCount].amount);
+
+          
+                }
+
                 for(stepCount in data.step) {
                     originalStep = document.getElementById("step0");
                     var clone = originalStep.cloneNode(true);
                     clone.id = "step" + stepCount;
                     step.appendChild(clone);
-                    clone.style.display = "block";
+                    clone.style.display = "";
                 
                     $("#step"+stepCount).children(".stepNum").text("Step " + stepCount);
                     $("#step"+stepCount).children("p").text(data.step[stepCount].content);
@@ -95,6 +114,8 @@ function getRecipeEveryInfo(data) {
                     document.getElementById(stepImageId).src = data.step[stepCount].image;
                             
                 }
+
+
                 
 
                 if (String(data.owner) == 'true'){
