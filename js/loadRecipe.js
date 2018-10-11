@@ -108,10 +108,11 @@ function getRecipeEveryInfo(data) {
                 
                     $("#step"+stepCount).children(".stepNum").text("Step " + stepCount);
                     $("#step"+stepCount).children("p").text(data.step[stepCount].content);
-                
-                    var stepImageId ="stepImg" + stepCount;
-                    document.getElementById("stepImg").id = stepImageId;
-                    document.getElementById(stepImageId).src = data.step[stepCount].image;
+
+                   
+                    var path = data.step[stepCount].image;
+                    $("#step"+stepCount).children(".stepImg").children("img").attr("src",path); 
+                    
                             
                 }
 
@@ -120,6 +121,8 @@ function getRecipeEveryInfo(data) {
 
                 if (String(data.owner) == 'true'){
                     $("#delete").css("visibility", "visible");
+                }else{
+                    $("#rating").css("visibility", "visible");
                 }
             } else {
                 console.log("no data matched");

@@ -25,11 +25,15 @@
 
     <div id="recipleInfo" style="width:50%; padding-top:20px; margin: auto;">
         <!--Always have heading before the row-->
-      
-                <h2 id="recipeTitle"> </h2>
+        <div class="mb-3">
 
-                <button type="button" id="delete" class=" btn btn-danger" style="margin-bottom: 10px;
-                visibility: hidden;" onclick="deleteRecipe()">Delete recipe</button>
+                <h2 id="recipeTitle" class="float-left mr-2"> </h2>
+                <!--Delete button-->
+                <button type="button" id="delete" class=" btn btn-danger float-right" style="visibility: hidden;" onclick="deleteRecipe()">Delete recipe</button>
+                
+                 <!--Like button-->
+                <button type="button" id="rating" class=" btn btn-success" style="visibility: hidden;" onclick="" ><i class="fa fa-thumbs-up ml-1" ></i> Like it</button>
+        </div>
 
 
         <!--carousel-->
@@ -120,8 +124,8 @@
                          
                     </p>
                         
-                    <div class="col-sm-6 recipe-method-image">
-                            <img id ="stepImg" src="" alt="Step Image">
+                    <div class="stepImg col-sm-6 recipe-method-image">
+                            <img  src="" alt="Step Image">
                     </div>
                 </li>
 
