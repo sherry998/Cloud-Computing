@@ -39,7 +39,7 @@
 			for ($i = 1; $i <= $num; $i++) {
 				$ingredient = $_POST['ingredient'.$i];
 				$amount =  $_POST['amount'.$i];
-				createIngredient($ingredient,$amount,$uuid,$session);
+				createIngredient($ingredient,$amount,$uuid,$session,$title);
 			}
 			
 			for ($i = 1; $i <= $steps; $i++) {
@@ -83,12 +83,12 @@
 		}	
 	}
 
-	function createIngredient($name,$amount,$id,$session){
-		$statement = $session->prepare('INSERT INTO ingredientused (recipeid,ingredientname, amount) values (
-			?,?,?)');
+	function createIngredient($name,$amount,$id,$session,$recipename){
+		$statement = $session->prepare('INSERT INTO ingredientused (recipeid,ingredientname, amount,recipename) values (
+			?,?,?,?)');
 
 		$result = $session->execute($statement, array(
-			'arguments' => array($id,$name,$amount)
+			'arguments' => array($id,$name,$amount,$recipename)
 		));
 	}
 	

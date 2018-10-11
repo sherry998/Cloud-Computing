@@ -26,7 +26,7 @@ function submitForm(){
     }
 
     //Check time is not empty
-    else if (hourV == "" || hourV == null || minuteV == "" || minuteV == null ) {
+    else if (hour == "" || hour == null || minutes == "" || minutes == null ) {
         alert("Hours and minutes must only have numerical values");
         return false;
     }
