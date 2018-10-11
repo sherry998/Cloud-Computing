@@ -157,6 +157,7 @@ function generateResult(data) {
     $("#searchResult").css("display", "block");
     $("#noResultDisplay").css("display", "none");
     var count = 1; // a variable to count the result number 
+    $("#searchResult").empty();
 
     // loop through each recipe from the json
     for (result in data) {
