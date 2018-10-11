@@ -295,6 +295,24 @@ function deleteRecipe(){
     }
 }
 
+function likeRecipe(){
+    console.log(id);
+    if(confirm("Are you sure you want to like this recipe?")){
+        $.ajax({
+            url: 'php/retrieveRecipeInfo.php',
+            type: 'post',
+            data: {"callAddRating": id},
+            success: function (data) {
+                console.log(data);
+                window.location.href = 'index.html';
+            },
+            error: function (data) {
+                console.log("error");
+                console.log(data);
+            }
+        });
+    }
+}
 
 
 
