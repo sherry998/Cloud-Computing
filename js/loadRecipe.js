@@ -295,8 +295,10 @@ function deleteRecipe(){
     }
 }
 
-function likeRecipe(){
+function likeRecipe(this){
     console.log(id);
+    var $thisButton = $(this);
+
     if(confirm("Are you sure you want to like this recipe?")){
         $.ajax({
             url: 'php/retrieveRecipeInfo.php',
