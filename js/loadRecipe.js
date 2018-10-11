@@ -311,6 +311,7 @@ function likeRecipe(this){
                 var $value = Number($voteCount.text()) + 1;
                 $voteCount.text($value);
                 console.log($voteCount.text());
+                alert("Successfully Upvoted!");
             },
             error: function (data) {
                 console.log("error");
