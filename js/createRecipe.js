@@ -16,7 +16,7 @@ function checkRecipe(){
 function submitForm(){
     var recipeTitleV = $('#recipeTitle').val();
     var hourV = $('#hour').val();
-    var mintueV = $('#mintues').val();
+    var minuteV = $('#minutes').val();
     var costV = $('#cost').val();
 
     //Check title is not empty
@@ -26,7 +26,7 @@ function submitForm(){
     }
 
     //Check time is not empty
-    else if (hourV == "" || hourV == null || mintueV == "" || mintueV == null ) {
+    else if (hourV == "" || hourV == null || minuteV == "" || minuteV == null ) {
         alert("Hours and minutes must only have numerical values");
         return false;
     }
@@ -97,7 +97,7 @@ function submitForm(){
 function cancel(){
     var recipeTitleV = $('#recipeTitle').val();
     var hourV = $('#hour').val();
-    var mintueV = $('#mintues').val();
+    var minuteV = $('#minutes').val();
     var costV = $('#cost').val();
 
     recipeTitleV.removeAttr("value");
@@ -113,8 +113,8 @@ function cancel(){
     //Remove each amount
     $(".amount").each(function () {
         this.value.removeAttr("value");
-    }); 
-   
+    });
+
     //Test each Step
     $(".step").each(function () {
         this.value.removeAttr("value");
@@ -126,7 +126,7 @@ function jsonRecipe(){
     var recipeTitleV = $('#recipeTitle').val();
     var recipeTypeV = $('#recipeType').val();
     var hourV = $('#hour').val();
-    var mintueV = $('#mintues').val();
+    var minuteV = $('#minutes').val();
     var recipeLevelV = $('#recipeLevel').val();
     var costV = $('#cost').val();
 
@@ -135,14 +135,14 @@ function jsonRecipe(){
         type: recipeTypeV,
         diffculty: recipeLevelV,
         //image:,
-        time: hourV+"."+mintueV,
+        time: hourV+"."+minuteV,
         cost : costV
-        
+
     };
 
     var jsonString;
 
-    
+
     jsonString = JSON.stringify(recipeObj);
     console.log(jsonString);
 }
