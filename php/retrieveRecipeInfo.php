@@ -1,5 +1,8 @@
 <?php
-	
+
+session_start();
+include("error.php");
+
 	if (isset($_POST['callGetRecipeInfo'])) {
 		
 		$inputArray = explode(':', $_POST['callGetRecipeInfo']);
@@ -69,9 +72,9 @@
 		include 'connect.php';
 		$statement = $session->prepare('SELECT * FROM recipebynationality WHERE nationality = ?');
 
-		$result = $session->execute($statement, new Cassandra\ExecutionOptions(array(
+		$result = $session->execute($statement, array(
 			'arguments' => array($nationality)
-		)));
+		));
 
 		getResult($result,$filterArray);
 	}
@@ -88,29 +91,30 @@
 	function getRecipeById ($id){
 		include 'connect.php';
 		$statementRecipe = $session->prepare('SELECT * FROM recipe WHERE recipeid = ?');
-
+		
+		
 		$id =  new Cassandra\Uuid($id);
-		$resultRecipe = $session->execute($statementRecipe, new Cassandra\ExecutionOptions(array(
+		$resultRecipe = $session->executeAsync($statementRecipe, array(
 			'arguments' => array($id )
-		)));
+		))->get();
 
 		$statementIngredient = $session->prepare('SELECT * FROM ingredientused WHERE recipeid = ?');
 
-		$resultIngredient = $session->execute($statementIngredient, new Cassandra\ExecutionOptions(array(
+		$resultIngredient = $session->executeAsync($statementIngredient,array(
 			'arguments' => array($id)
-		)));
+		))->get();
 
 		$statementStep = $session->prepare('SELECT * FROM steps WHERE recipeid = ?');
 
-    	$resultStep = $session->execute($statementStep, new Cassandra\ExecutionOptions(array(
+    	$resultStep = $session->executeAsync($statementStep, array(
     		'arguments' => array( $id )
-    	)));
+    	))->get();
 
         $statementRating = $session->prepare('SELECT * FROM rating WHERE recipeid = ?');
 
-    	$resultRating = $session->execute($statementRating, new Cassandra\ExecutionOptions(array(
+    	$resultRating = $session->executeAsync($statementRating, array(
     		'arguments' => array( $id )
-    	)));
+    	))->get();
 
     	getEveryThing($resultRecipe,$resultIngredient,$resultStep,$resultRating);
     }
@@ -135,7 +139,6 @@
 							"minute" => $row['minute'],
 							"hour" => $row['hour'],
 							"username" => $row['username'],
-							"rating" => $row['rating'],
 						);
 						$count+=1;
 					}
@@ -150,7 +153,7 @@
 	function getEveryThing($resultRecipe,$resultIngredient,$resultStep,$statementRating){
         $json;
         $user= null;
-        session_start();
+       
         if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
             $user = $_SESSION['username'];
         }
@@ -172,8 +175,7 @@
             $json["hour"] = $row['hour'];
 			$json["minute"] = $row['minute'];
             $json["username"] = $row['username'];
-            $json["rating"] = $rating;
-			 $json["owner"] = false;
+			$json["owner"] = false;
 
             if ($row['username'] == $user){
                 $json["owner"] = true;
@@ -207,27 +209,27 @@
         $id =  new Cassandra\Uuid($id);
         $statement = $session->prepare('DELETE FROM recipe WHERE recipeid = ?');
 
-        $session->execute($statement, new Cassandra\ExecutionOptions(array(
+        $session->execute($statement, array(
             'arguments' => array($id)
-        )));
+        ));
 
         $statementStep = $session->prepare('DELETE FROM steps WHERE recipeid = ?');
 
-        $session->execute($statementStep, new Cassandra\ExecutionOptions(array(
+        $session->execute($statementStep, array(
              'arguments' => array($id)
-        )));
+        ));
 
         $statementIngredient = $session->prepare('DELETE FROM ingredientused WHERE recipeid = ?');
 
-        $session->execute($statementIngredient, new Cassandra\ExecutionOptions(array(
+        $session->execute($statementIngredient, array(
             'arguments' => array($id)
-        )));
+        ));
 		
 		$statementRating = $session->prepare('DELETE FROM rating WHERE recipeid = ?');
 
-        $session->execute($statementRating, new Cassandra\ExecutionOptions(array(
+        $session->execute($statementRating, array(
             'arguments' => array($id)
-        )));
+        ));
 		
     }
 
@@ -236,9 +238,9 @@
         $id =  new Cassandra\Uuid($id);
         $statement = $session->prepare('UPDATE rating SET rating = rating + 1 WHERE recipeid = ?');
 
-        $session->execute($statement, new Cassandra\ExecutionOptions(array(
+        $session->execute($statement, array(
             'arguments' => array($id)
-        )));
+        ));
     }
 	
 ?>

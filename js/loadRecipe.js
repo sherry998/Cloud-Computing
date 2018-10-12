@@ -17,9 +17,9 @@ function deleteRecipe(){
     }
 }
 
-function likeRecipe(this){
+function likeRecipe(object){
     console.log(id);
-    var $thisButton = $(this);
+    var $thisButton = object;
 
     if(confirm("Are you sure you want to like this recipe?")){
         $.ajax({
@@ -42,6 +42,5 @@ function likeRecipe(this){
         });
     }
 }
-
 
 

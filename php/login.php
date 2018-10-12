@@ -23,9 +23,9 @@
 		include 'connect.php';
 		$statement = $session->prepare('SELECT username FROM publisher WHERE username = ? AND password = ?');
 
-		$result = $session->execute($statement, new Cassandra\ExecutionOptions(array(
+		$result = $session->execute($statement, array(
 			'arguments' => array($username,$password)
-		)));
+		));
 
 		if ($result->count()>=1){
 			session_start();

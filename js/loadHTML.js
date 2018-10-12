@@ -399,3 +399,5 @@ function isEmptyObject( obj ) {
 function clearAll(){
     $('input[type=checkbox]').prop('checked',false);
 }
+
+
