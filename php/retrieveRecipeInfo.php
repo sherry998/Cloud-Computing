@@ -44,9 +44,9 @@ include("error.php");
 		
         $statement = $session->prepare('SELECT * FROM ingredients WHERE ingredientname in ('.$whereStatement.')');
 
-        $result = $session->executeAsync($statement, new Cassandra\ExecutionOptions(array(
+        $result = $session->executeAsync($statement, array(
             'arguments' => $filterArray
-        )));
+        ));
         $resultArray = array();
         foreach ($result as $row) {
             if (!in_array($row['recipeid']->__toString(), $resultArray)){
@@ -61,9 +61,9 @@ include("error.php");
 		include 'connect.php';
 		$statement = $session->prepare('SELECT * FROM recipebyname WHERE name = ?');
 
-		$result = $session->execute($statement, new Cassandra\ExecutionOptions(array(
+		$result = $session->execute($statement, array(
 			'arguments' => array($name)
-		)));
+		));
 		
 		getResult($result,$filterArray);
 	}
