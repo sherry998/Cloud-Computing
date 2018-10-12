@@ -125,7 +125,7 @@
 				foreach ($result as $row) {
 					if ($filterArray == "empty" || (in_array($row['recipeid']->__toString(), $filterArray)) ){
 						$json[$count] = array (
-							"id" => $row['recipeid']->to,
+                            "id" => $row['recipeid']->__toString(),
 							"title" => $row['name'],
 							"cost" => $row['cost'],
 							"date" => $row['date']->toDateTime (),
