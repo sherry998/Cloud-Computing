@@ -98,25 +98,7 @@ include("error.php");
 			'arguments' => array($id )
 		))->get();
 
-		$statementIngredient = $session->prepare('SELECT * FROM ingredientused WHERE recipeid = ?');
-
-		$resultIngredient = $session->executeAsync($statementIngredient,array(
-			'arguments' => array($id)
-		))->get();
-
-		$statementStep = $session->prepare('SELECT * FROM steps WHERE recipeid = ?');
-
-    	$resultStep = $session->executeAsync($statementStep, array(
-    		'arguments' => array( $id )
-    	))->get();
-
-        $statementRating = $session->prepare('SELECT * FROM rating WHERE recipeid = ?');
-
-    	$resultRating = $session->executeAsync($statementRating, array(
-    		'arguments' => array( $id )
-    	))->get();
-
-    	getEveryThing($resultRecipe,$resultIngredient,$resultStep,$resultRating);
+    	getEveryThing($resultRecipe);
     }
 	
 	function getResult($result,$filterArray){
@@ -150,7 +132,7 @@ include("error.php");
 		}
 	}
 
-	function getEveryThing($resultRecipe,$resultIngredient,$resultStep,$statementRating){
+	function getEveryThing($resultRecipe){
         $json;
         $user= null;
        
@@ -158,10 +140,6 @@ include("error.php");
             $user = $_SESSION['username'];
         }
         $rating = 0;
-        if ($statementRating->count()==1){
-            $row = $statementRating->first();
-            $rating = $row['rating']->value();
-        }
 
         if ($resultRecipe->count()==1){
             $row = $resultRecipe->first();
@@ -182,23 +160,6 @@ include("error.php");
                 $json["owner"] = true;
             }
 
-            $ingredientCount =1;
-            foreach ($resultIngredient as $rowIngredient) {
-                $json["ingredient"][$ingredientCount] = array (
-					"name" => $rowIngredient['ingredientname'],
-					"amount" => $rowIngredient['amount'],
-				);
-				$ingredientCount+=1;
-            }
-
-            $stepCount =1;
-            foreach ($resultStep as $rowStep) {
-                $json["step"][$stepCount] = array (
-					"content" => $rowStep['content'],
-					"image" => $rowStep ['image'],
-				);
-				$stepCount+=1;
-            }
     		echo json_encode($json);
         } else{
             echo json_encode("");
