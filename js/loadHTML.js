@@ -323,11 +323,7 @@ function generateResult(data) {
             '<div class="tag">' + 
                 '<span id="result-time-cost" class="badge badge-secondary" style="margin-right: 5px">Time cost</span>' +
                 '<span id="result-money-cost" class="badge badge-secondary" style="margin-right: 5px">cost</span>' +
-                '<span id="result-difficulty-level" class="badge badge-secondary">Level</span>' + 
-                '<div class="pull-right">' + 
-                    '<span id="result-rating" class="badge badge-success "> <span id="rating">99</span>' +
-            ' <i class="fa fa-thumbs-up ml-1"></i> </span>' +
-                '</div>' + 
+                '<span id="result-difficulty-level" class="badge badge-secondary">Level</span>' +
                 '<hr class="mb-3">' + 
             '</div>' + 
         '</div>';
@@ -378,12 +374,6 @@ function generateResult(data) {
         document.getElementById("result-difficulty-level").id = difficultyLevelId;
         document.getElementById(difficultyLevelId).innerHTML = data[result].diffculty;
 
-        // get the real rating
-        var ratingId = "result-rating" + count;
-        var ratingtextId = "result-rating-text" + count;
-        document.getElementById("result-rating").id = ratingId;
-        document.getElementById("rating").id = ratingtextId;
-        document.getElementById(ratingtextId).innerHTML = data[result].rating;
 
         count++;
     }
