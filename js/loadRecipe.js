@@ -17,9 +17,9 @@ function deleteRecipe(){
     }
 }
 
-function likeRecipe(object){
+function likeRecipe(){
     console.log(id);
-    var $thisButton = object;
+    var $thisRating = $("#overallRating");
 
     if(confirm("Are you sure you want to like this recipe?")){
         $.ajax({
@@ -27,12 +27,11 @@ function likeRecipe(object){
             type: 'post',
             data: {"callAddRating": id},
             success: function (data) {
-                console.log(data);
-                var $voteCount = $thisButton.parent();
-                console.log($voteCount.text());
-                var $value = Number($voteCount.text()) + 1;
-                $voteCount.text($value);
-                console.log($voteCount.text());
+                
+                var $value = Number($thisRating.innerHTML()) + 1;
+                console.log($value);
+                document.getElementById("overallRating").innerHTML=$value;
+                
                 alert("Successfully Upvoted!");
             },
             error: function (data) {
@@ -42,5 +41,6 @@ function likeRecipe(object){
         });
     }
 }
+
 
 
