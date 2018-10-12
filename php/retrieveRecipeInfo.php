@@ -175,6 +175,7 @@ include("error.php");
             $json["hour"] = $row['hour'];
 			$json["minute"] = $row['minute'];
             $json["username"] = $row['username'];
+            $json["rating"] = $rating;
 			$json["owner"] = false;
 
             if ($row['username'] == $user){
