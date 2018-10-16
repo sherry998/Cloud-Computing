@@ -32,13 +32,13 @@
 			$statement = $session->prepare('INSERT INTO recipe (recipeid,name, cost, date, image, hour,minute, nationality,username,diffculty) values (
 				?,?,?,?,?,?,?,?,?,?)');
 
-			$result = $session->execute($statement, array(
+			$result = $session->executeAsync($statement, array(
 				'arguments' => array($uuid,$title,$cost,$date,$image,$hour,$minute,$type,$username,$level)
 			));
 			
 			for ($i = 1; $i <= $num; $i++) {
 				$ingredient = $_POST['ingredient'.$i];
-				$amount =  $_POST['amount'.$i];
+				$amount =  (int)$_POST['amount'.$i];
 				createIngredient($ingredient,$amount,$uuid,$session,$title);
 			}
 			
@@ -87,7 +87,7 @@
 		$statement = $session->prepare('INSERT INTO ingredientused (recipeid,ingredientname, amount,recipename) values (
 			?,?,?,?)');
 
-		$result = $session->execute($statement, array(
+		$result = $session->executeAsync($statement, array(
 			'arguments' => array($id,$name,$amount,$recipename)
 		));
 	}
@@ -96,7 +96,7 @@
 		$statement = $session->prepare('INSERT INTO steps (recipeid,stepnum, content, image) values (
 			?,?,?,?)');
 
-		$result = $session->execute($statement, array(
+		$result = $session->executeAsync($statement, array(
 			'arguments' => array($id,$i,$content,$image)
 		));
 	}
