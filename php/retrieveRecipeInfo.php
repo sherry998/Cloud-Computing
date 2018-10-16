@@ -61,7 +61,7 @@ include("error.php");
 
         $result = $session->executeAsync($statement, array(
             'arguments' => $filterArray
-        ));
+        ))->get();
         $resultArray = array();
         foreach ($result as $row) {
             if (!in_array($row['recipeid']->__toString(), $resultArray)){
@@ -105,13 +105,15 @@ include("error.php");
 
 	function getRecipeById ($id){
 		include 'connect.php';
-		$statementRecipe = $session->prepare('SELECT * FROM recipe WHERE recipeid = ?');
+		$statementRecipe = $session->prepare ('SELECT * FROM recipe WHERE recipeid = ?');
 		
 		
 		$id =  new Cassandra\Uuid($id);
-		$resultRecipe = $session->execute($statementRecipe, array(
+		$future = $session->executeAsync($statementRecipe, array(
 			'arguments' => array($id )
 		));
+		
+		$resultRecipe = $future->get(); 
 
     	$json;
         $user= null;
@@ -153,9 +155,9 @@ include("error.php");
 		
         $statementRating = $session->prepare('SELECT * FROM rating WHERE recipeid = ?');
 
-        $resultRating = $session->execute($statementRating, array(
+        $resultRating = $session->executeAsync($statementRating, array(
             'arguments' => array( $id )
-        ));
+        ))->get();
         
 		$rating = 0;
         if ($resultRating->count()==1){
@@ -206,9 +208,9 @@ include("error.php");
 		
         $statementStep = $session->prepare('SELECT * FROM steps WHERE recipeid = ?');
 
-        $resultStep = $session->execute($statementStep, array(
+        $resultStep = $session->executeAsync($statementStep, array(
             'arguments' => array( $id )
-        ));
+        ))->get();
 
         
         $stepCount =1;
@@ -234,9 +236,10 @@ include("error.php");
 		
 		$statementIngredient = $session->prepare('SELECT * FROM ingredientused WHERE recipeid = ?');
 
-        $resultIngredient = $session->execute($statementIngredient,array(
+        $resultIngredient = $session->executeAsync($statementIngredient,array(
             'arguments' => array($id)
-        ));
+        ))->get();
+	
         
                    $ingredientCount =1;
             foreach ($resultIngredient as $rowIngredient) {
