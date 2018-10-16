@@ -358,7 +358,7 @@ function generateResult(data) {
 
             // recipe title & publish date
             '<div class="row">' + 
-                '<h6 id="result-title" class="col"><a class="text-dark">' +
+                '<h6 id="result-title" class="col"><a class="text-dark" style="text-transform: capitalize;" >' +
             'Recipe Name</a></h6>' +
                 '<h6 class="col text-muted text-right">' + 
                     '<small id="result-date">2018-09-21</small>' + 
