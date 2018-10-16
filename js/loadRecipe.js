@@ -18,8 +18,8 @@ function deleteRecipe(){
 }
 
 function likeRecipe(){
-    console.log(id);
-    var $thisRating = $("#overallRating");
+
+    var $thisRating = $("#overallRating").text();
 
     if(confirm("Are you sure you want to like this recipe?")){
         $.ajax({
@@ -28,8 +28,8 @@ function likeRecipe(){
             data: {"callAddRating": id},
             success: function (data) {
                 
-                var $value = Number($thisRating.innerHTML()) + 1;
-                console.log($value);
+                var $value = Number($thisRating) + 1;
+                
                 document.getElementById("overallRating").innerHTML=$value;
                 
                 alert("Successfully Upvoted!");
