@@ -24,6 +24,21 @@ include("error.php");
         }
     }
 
+    if (isset($_POST['callGetRecipeInfoSteps'])) {
+        $inputArray = explode(':', $_POST['callGetRecipeInfoSteps']);
+        getRecipeSteps($inputArray[1]);
+    }
+	
+	if (isset($_POST['callGetRecipeIngredients'])) {
+        $inputArray = explode(':', $_POST['callGetRecipeIngredients']);
+        getRecipeIngredients($inputArray[1]);
+    }
+	
+	if (isset($_POST['callGetRating'])) {
+        $inputArray = explode(':', $_POST['callGetRating']);
+        getRating($inputArray[1]);
+    }
+
     if (isset($_POST['callDelete'])) {
         delete($_POST['callDelete']);
     }
@@ -94,12 +109,64 @@ include("error.php");
 		
 		
 		$id =  new Cassandra\Uuid($id);
-		$resultRecipe = $session->executeAsync($statementRecipe, array(
+		$resultRecipe = $session->execute($statementRecipe, array(
 			'arguments' => array($id )
-		))->get();
+		));
 
-    	getEveryThing($resultRecipe);
+    	$json;
+        $user= null;
+       
+        if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+            $user = $_SESSION['username'];
+        }
+        $rating = 0;
+
+        if ($resultRecipe->count()==1){
+            $row = $resultRecipe->first();
+            $json["id"] = $row['recipeid'];
+            $json["title"] = $row['name'];
+            $json["cost"] = $row['cost'];
+            $json["date"] = $row['date']->toDateTime ();
+            $json["diffculty"] = $row['diffculty'];
+            $json["image"] = $row['image'];
+            $json["nationality"] = $row['nationality'];
+            $json["hour"] = $row['hour'];
+			$json["minute"] = $row['minute'];
+            $json["username"] = $row['username'];
+            $json["rating"] = $rating;
+			$json["owner"] = false;
+
+            if ($row['username'] == $user){
+                $json["owner"] = true;
+            }
+
+    		echo json_encode($json);
+        } else{
+            echo json_encode("");
+        }
     }
+	
+	function getRating($id){
+		 include 'connect.php';
+		$id =  new Cassandra\Uuid($id);
+		$json = null;
+		
+        $statementRating = $session->prepare('SELECT * FROM rating WHERE recipeid = ?');
+
+        $resultRating = $session->execute($statementRating, array(
+            'arguments' => array( $id )
+        ));
+        
+		$rating = 0;
+        if ($resultRating->count()==1){
+            $row = $resultRating->first();
+            $rating = $row['rating']->value();
+        } 
+		
+		$json["rating"] = $rating;
+		echo json_encode($json);
+
+	}
 	
 	function getResult($result,$filterArray){
 		$json;
@@ -132,39 +199,60 @@ include("error.php");
 		}
 	}
 
-	function getEveryThing($resultRecipe){
-        $json;
-        $user= null;
-       
-        if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
-            $user = $_SESSION['username'];
+	function getRecipeSteps($id){
+	    include 'connect.php';
+		$id =  new Cassandra\Uuid($id);
+		$json = null;
+		
+        $statementStep = $session->prepare('SELECT * FROM steps WHERE recipeid = ?');
+
+        $resultStep = $session->execute($statementStep, array(
+            'arguments' => array( $id )
+        ));
+
+        
+        $stepCount =1;
+		
+		foreach ($resultStep as $rowStep) {
+			$json["step"][$stepCount] = array (
+				"content" => $rowStep['content'],
+                "image" => $rowStep ['image'],
+            );
+            $stepCount+=1;
         }
-        $rating = 0;
+		if ($json!=null){
+			echo json_encode($json);
+		} else {
+			echo json_encode("");
+		}
+	}
+	
+	function getRecipeIngredients($id){
+	    include 'connect.php';
+		$id =  new Cassandra\Uuid($id);
+		$json = null;
+		
+		$statementIngredient = $session->prepare('SELECT * FROM ingredientused WHERE recipeid = ?');
 
-        if ($resultRecipe->count()==1){
-            $row = $resultRecipe->first();
-            $json["id"] = $row['recipeid'];
-            $json["title"] = $row['name'];
-            $json["cost"] = $row['cost'];
-            $json["date"] = $row['date']->toDateTime ();
-            $json["diffculty"] = $row['diffculty'];
-            $json["image"] = $row['image'];
-            $json["nationality"] = $row['nationality'];
-            $json["hour"] = $row['hour'];
-			$json["minute"] = $row['minute'];
-            $json["username"] = $row['username'];
-            $json["rating"] = $rating;
-			$json["owner"] = false;
-
-            if ($row['username'] == $user){
-                $json["owner"] = true;
+        $resultIngredient = $session->execute($statementIngredient,array(
+            'arguments' => array($id)
+        ));
+        
+                   $ingredientCount =1;
+            foreach ($resultIngredient as $rowIngredient) {
+                $json["ingredient"][$ingredientCount] = array (
+                    "name" => $rowIngredient['ingredientname'],
+                    "amount" => $rowIngredient['amount'],
+                );
+                $ingredientCount+=1;
             }
 
-    		echo json_encode($json);
-        } else{
-            echo json_encode("");
-        }
-    }
+        if ($json!=null){
+			echo json_encode($json);
+		} else {
+			echo json_encode("");
+		}
+	}
 
     function delete($id){
         include 'connect.php';

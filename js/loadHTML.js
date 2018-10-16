@@ -186,11 +186,11 @@ function getRecipe(data) {
     });
 }
 
-function getRecipeEveryInfo(data) {
+function getRecipeEveryInfo(id) {
     $.ajax({
         url: 'php/retrieveRecipeInfo.php',
         type: 'post',
-        data: {"callGetRecipeInfo": data},
+        data: {"callGetRecipeInfo": id},
         dataType: 'json',
         success: function (data) {
             console.log(data);
@@ -198,67 +198,114 @@ function getRecipeEveryInfo(data) {
                 // data is the json returned back from the search result
                 $("#recipleInfo").css("display", "block");
                 $("#noInfo").css("display", "none");
-                document.getElementById("recipeTitle").innerHTML= data.title;
-                document.getElementById("recipeImage").src=data.image;     
-                document.getElementById("moneyCost").innerHTML= data.cost;
-                document.getElementById("difficultyL").innerHTML= data.diffculty;
-                document.getElementById("overallRating").innerHTML= data.rating;
-                document.getElementById("region").innerHTML= data.nationality;
-                document.getElementById("duration").innerHTML=data.hour + " hours " + data.minute + " mins ";
-                document.getElementById("createDate").innerHTML= data.date.date.toString().split(" ")[0];
+                document.getElementById("recipeTitle").innerHTML = data.title;
+                document.getElementById("recipeImage").src = data.image;
+                document.getElementById("moneyCost").innerHTML = data.cost;
+                document.getElementById("difficultyL").innerHTML = data.diffculty;
+                document.getElementById("region").innerHTML = data.nationality;
+                document.getElementById("duration").innerHTML = data.hour + " hours " + data.minute + " mins ";
+                document.getElementById("createDate").innerHTML = data.date.date.toString().split(" ")[0];
 
-                for(ingredientCount in data.ingredient) {
-                    originalInfo = document.getElementById("info0");
-                    var clone = originalInfo.cloneNode(true);
-                    clone.id = "info" + ingredientCount;
-                    ingredient.appendChild(clone);
-                    clone.style.display = "";
-                  
-                
-                    $("#info"+ingredientCount).children("th").text(ingredientCount);
-                    $("#info"+ingredientCount).children(".ingredientName").html(data.ingredient[ingredientCount].name);
-                    $("#info"+ingredientCount).children(".ingredientAmount").html(data.ingredient[ingredientCount].amount);
-
-          
-                }
-
-                for(stepCount in data.step) {
-                    originalStep = document.getElementById("step0");
-                    var clone = originalStep.cloneNode(true);
-                    clone.id = "step" + stepCount;
-                    step.appendChild(clone);
-                    clone.style.display = "";
-                
-                    $("#step"+stepCount).children(".stepNum").text("Step " + stepCount);
-                    $("#step"+stepCount).children("p").text(data.step[stepCount].content);
-
-                   
-                    var path = data.step[stepCount].image;
-                    $("#step"+stepCount).children(".stepImg").children("img").attr("src",path); 
-                    
-                            
-                }
-
-
-                
-
-                if (String(data.owner) == 'true'){
+                if (String(data.owner) == 'true') {
                     $("#delete").css("visibility", "visible");
-                }else{
+                } else {
                     $("#rating").css("visibility", "visible");
                 }
-            } else {
-                console.log("no data matched");
-                $("#recipleInfo").css("display", "none");
-                $("#noInfo").css("display", "block");
-
+                getSteps(id);
             }
+
         },
         error: function (data) {
             console.log("error");
             console.log(data);
             $("#recipleInfo").css("display", "none");
             $("#noInfo").css("display", "block");
+        }
+    });
+}
+
+function getSteps(id) {
+    $.ajax({
+        url: 'php/retrieveRecipeInfo.php',
+        type: 'post',
+        data: {"callGetRecipeInfoSteps": id},
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data !== null && data !== "") {
+                for (stepCount in data.step) {
+                    originalStep = document.getElementById("step0");
+                    var clone = originalStep.cloneNode(true);
+                    clone.id = "step" + stepCount;
+                    step.appendChild(clone);
+                    clone.style.display = "";
+
+                    $("#step" + stepCount).children(".stepNum").text("Step " + stepCount);
+                    $("#step" + stepCount).children("p").text(data.step[stepCount].content);
+
+
+                    var path = data.step[stepCount].image;
+                    $("#step" + stepCount).children(".stepImg").children("img").attr("src", path);
+
+                }
+                getIngredient(id);
+            }
+        },
+        error: function (data) {
+            console.log("error");
+            console.log(data);
+        }
+    });
+}
+    function getIngredient(id){
+        $.ajax({
+            url: 'php/retrieveRecipeInfo.php',
+            type: 'post',
+            data: {"callGetRecipeIngredients": id},
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data !== null && data !== "") {
+                    for(ingredientCount in data.ingredient) {
+                        originalInfo = document.getElementById("info0");
+                        var clone = originalInfo.cloneNode(true);
+                        clone.id = "info" + ingredientCount;
+                        ingredient.appendChild(clone);
+                        clone.style.display = "";
+
+
+                        $("#info"+ingredientCount).children("th").text(ingredientCount);
+                        $("#info"+ingredientCount).children(".ingredientName").html(data.ingredient[ingredientCount].name);
+                        $("#info"+ingredientCount).children(".ingredientAmount").html(data.ingredient[ingredientCount].amount);
+
+                    }
+                    getRating(id);
+                }
+            },
+            error: function (data) {
+                console.log("error");
+                console.log(data);
+            }
+        });
+
+
+}
+
+function getRating(id){
+    $.ajax({
+        url: 'php/retrieveRecipeInfo.php',
+        type: 'post',
+        data: {"callGetRating": id},
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data !== null && data !== "") {
+                document.getElementById("overallRating").innerHTML= data.rating;
+            }
+        },
+        error: function (data) {
+            console.log("error");
+            console.log(data);
         }
     });
 }
