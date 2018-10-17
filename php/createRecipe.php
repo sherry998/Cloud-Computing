@@ -34,11 +34,11 @@
 
 			$result = $session->executeAsync($statement, array(
 				'arguments' => array($uuid,$title,$cost,$date,$image,$hour,$minute,$type,$username,$level)
-			));
+			))->get();
 			
 			for ($i = 1; $i <= $num; $i++) {
 				$ingredient = $_POST['ingredient'.$i];
-				$amount =  (int)$_POST['amount'.$i];
+				$amount =  $_POST['amount'.$i];
 				createIngredient($ingredient,$amount,$uuid,$session,$title);
 			}
 			
