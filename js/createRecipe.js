@@ -59,9 +59,6 @@ function submitForm(){
     $(".amount").each(function () {
         if (this.value == "" || this.value == null ) {
             alert("Amount cannot be empty");
-        }
-        else if (/^[a-zA-Z0-9- ]*$/.test(this.value) == false) {
-            alert("Amount cannot have special characters");
             return false;
         }
     });
