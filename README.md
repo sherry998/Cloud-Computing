@@ -1,2 +1,2 @@
-# INFS3208
-INFS3208-A2
+# Cloud Computing
+Cloud Computing-A2
